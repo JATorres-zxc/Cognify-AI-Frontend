@@ -22,8 +22,11 @@ const FlashcardGenerator = () => {
                     </button>
                 </div>
 
-                <div className={styles["note-container"]}>
+                <div className={styles["note-wrapper"]}>
+                    <div className={styles["note-tilt"]}></div>
+                    <div className={styles["note-container"]}></div>
                 </div>
+
                 
             </div>
 
