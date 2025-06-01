@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--white);
-    height: 90vh;
+    height: auto;
     padding-bottom: 3rem;
 }
 
@@ -32,21 +32,47 @@
     width: 75%;
 }
 
-.note-container {
-    margin-top: var(--spacing-xl);
-    background-color: var(--text-white);
-    border-radius: var(--button-radius);
+.type-selection{
+    height: 90vh;
     width: 75%;
-    height: 500px;
 }
 
-.upload-btn {
-    width: 55%;
-    cursor: pointer;
-    background-color: var(--outline);
-    border: 3px solid black;
-    border-radius: var(--button-radius);
-    font-family: var(--font-roboto-flex);
-    font-size: 2.5rem;
-    padding: 1rem 1rem;
+.type-selection p {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
 }
+
+.outside-btn {
+    background-color: var(--outline);
+    color:white;
+    border: 3px solid black;
+}
+
+.inside-btn{
+    background-color: white;
+    color: var(--outline);
+    border: 3px solid var(--outline);
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 50px; 
+    width: max-content; 
+    width: 100%;
+    height: auto;
+}
+
+.button-grid button {
+    padding: 5rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 2.5rem;
+    font-family: var(--font-roboto-flex);
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+

@@ -15,16 +15,20 @@ const QuizGenerator = () => {
                     <h1>Quiz Generator</h1>
                 </div>
                 <div className='line'></div>
+                
+                <div className='type-selection'>
+                    <p>Choose your type of quiz</p>
 
-                <div className='btn-container'>
-                    <button className='upload-btn'>
-                        Upload
-                    </button>
-                </div>
+                    <div className="button-grid">
+                        <button className='outside-btn'>Multiple <br /> Choice</button>
+                        <button className='inside-btn'>True / False</button>
+                        <button className='inside-btn'>Short Answer</button>
+                        <button className='outside-btn'>Fill in the <br /> Blank</button>
+                    </div>
 
-                <div className='note-container'>
                 </div>
                 
+
             </div>
 
             <div>
