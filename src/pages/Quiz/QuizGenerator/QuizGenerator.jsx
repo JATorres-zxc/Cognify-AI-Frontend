@@ -2,28 +2,28 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
-import './QuizGenerator.css';
+import styles from './QuizGenerator.module.css'
 
 const QuizGenerator = () => {
     return (
-        <div className="home">
+        <div className={styles.home}>
             <div>
             <Header />
             </div>
-            <div className='main'>
-                <div className='main-header'>
+            <div className={styles.main}>
+                <div className={styles["main-header"]}>
                     <h1>Quiz Generator</h1>
                 </div>
-                <div className='line'></div>
+                <div className={styles.line}></div>
                 
-                <div className='type-selection'>
+                <div className={styles["type-selection"]}>
                     <p>Choose your type of quiz</p>
 
-                    <div className="button-grid">
-                        <button className='outside-btn'>Multiple <br /> Choice</button>
-                        <button className='inside-btn'>True / False</button>
-                        <button className='inside-btn'>Short Answer</button>
-                        <button className='outside-btn'>Fill in the <br /> Blank</button>
+                    <div className={styles["button-grid"]}>
+                        <button className={styles["outside-btn"]}>Multiple <br /> Choice</button>
+                        <button className={styles["inside-btn"]}>True / False</button>
+                        <button className={styles["inside-btn"]}>Short Answer</button>
+                        <button className={styles["outside-btn"]}>Fill in the <br /> Blank</button>
                     </div>
 
                 </div>
