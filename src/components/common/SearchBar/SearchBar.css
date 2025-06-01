@@ -1,10 +1,9 @@
 .search-container {
   display: flex;
   align-items: center;
-  max-width: 400px;
+  width: 500px;
   margin: 0 auto;
-  border: 1px solid #ccc;
-  border-radius: 25px;
+  border-radius: var(--spacing-sm);
   overflow: hidden;
   background-color: #fff;
 }
@@ -15,18 +14,18 @@
   padding: 10px 15px;
   font-size: 16px;
   outline: none;
+  color: #D9D9D9;
 }
 
 .search-button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--text-white);
+  color: black;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background-color: var(--outline);
 }

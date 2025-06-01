@@ -7,7 +7,7 @@ import userIcon from '../../../assets/icons/user.svg';
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
 
-const Header = () => {
+const LandingPageHeader = () => {
     return (
     <div className='header'>
         <div className='content'>
@@ -48,7 +48,7 @@ const Header = () => {
 
             <div className='login-btn-container'>
                 <button className='btn'>
-                    Logout
+                    Login
                     <img src={userIcon} alt='Login' className='login-icon' />
                 </button>
             </div>
@@ -57,4 +57,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default LandingPageHeader;

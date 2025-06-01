@@ -1,15 +1,18 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import LandingPageHeader from '../../components/common/Header/Header';
+import LandingPageHeader from '../../components/common/Header/LandingPageHeader';
+import Footer from '../../components/common/Footer/Footer';
 import arrow from '../../assets/icons/arrow-right.svg';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home">
-      <LandingPageHeader />
+      <div>
+        <LandingPageHeader />
+      </div>
       <div className='main'>
-        <div className='header'>
+        <div className='main-header'>
           <h1>Learn with SensAI</h1>
           <p>Your AI powered sensei, guiding you every step of the way.</p>
         </div>
@@ -114,6 +117,9 @@ const Home = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
