@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,29 +10,11 @@
     height: auto;
 }
 
-.login-card {
+.signup-card {
     background-color: var(--primary-yellow);
     border: 4px solid var(--outline);
     border-radius: var(--border-radius);
     width: 25%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     padding: var(--spacing-lg);
-}
-
-.login-header h1 {
-    color: var(--text-white);
-    -webkit-text-stroke: 2px var(--outline);
-    font-family: var(--font-jaro);
-    font-size: 5rem;
-    text-align: center;
-    margin: 0;
-    padding-bottom: 2.5rem;
-}
-
-.login-form {
-    width: 50%;
 }

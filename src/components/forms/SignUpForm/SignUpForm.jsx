@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './SignUpForm.css';
 
 const SignUpForm = () => {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -13,36 +14,52 @@ const SignUpForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="signup-form">
-            <div className="form-group">
-                <label className="label"> Email </label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="input-field"
-                />
+        <div className="form-container">
+            <div className="signup-header">
+                <h1>Sign Up</h1>
             </div>
+            <form onSubmit={handleSubmit} className="signup-form">
+                <div className="form-group">
+                    <label className="label"> Username </label>
+                    <input
+                        type="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        className="input-field"
+                    />
+                </div>
 
-            <div className="form-group">
-                <label className="label"> Password </label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="input-field"
-                />
-            </div>
+                <div className="form-group">
+                    <label className="label"> Email </label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="input-field"
+                    />
+                </div>
 
-            <div className="btn-container">
-                <button type="submit" className="login-btn">
-                    Log In
-                </button>
-                <a href="/signup"> Don't have an account?</a>
-            </div>
-        </form>
+                <div className="form-group">
+                    <label className="label"> Password </label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="input-field"
+                    />
+                </div>
+
+                <div className="btn-container">
+                    <button type="submit" className="signup-btn">
+                        Sign Up
+                    </button>
+                    <a href="/login"> Already have an account?</a>
+                </div>
+            </form>
+        </div>
     );
 }
 

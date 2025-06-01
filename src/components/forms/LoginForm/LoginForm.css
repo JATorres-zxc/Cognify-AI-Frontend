@@ -1,0 +1,78 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding-bottom: 1.5rem;
+}
+
+.login-header h1 {
+    color: var(--text-white);
+    -webkit-text-stroke: 2px var(--outline);
+    font-family: var(--font-jaro);
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 2.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.label {
+    font-size: 1.5rem;
+    color: var(--outline);
+}
+
+.input-field {
+    border: 4px solid var(--outline);
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    margin-top: 2rem;
+}
+
+.login-btn {
+    background-color: var(--btn);
+    color: var(--text-white);
+    font-size: 1.5rem;
+    font-family: var(--roboto-flex);
+    font-weight: 500;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    border-radius: var(--button-radius);
+}
+
+.btn-container a {
+    color: var(--red);
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 992px) {
+    .login-header h1 {
+        font-size: 3rem;
+        -webkit-text-stroke: 1.5px var(--outline);
+    }
+}
