@@ -9,9 +9,9 @@ import SignUpPage from './pages/Auth/SignUp/SignUp';
 import Notes from './pages/NoteUpload/NoteUpload';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
+import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator'
 
 // Simplified placeholder components
-const Flashcards = () => <div className="page">Flashcards Page</div>;
 
 function App() {
   return (
