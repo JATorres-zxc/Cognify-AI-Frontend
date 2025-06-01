@@ -36,6 +36,8 @@
     flex-direction: column;
     width: 4.5rem;
     height: 7vh;
+    cursor: pointer;
+    position: relative;
 }
 
 .nav-text {
@@ -66,4 +68,35 @@
 .login-icon {
     height: 24px;
     width: 24px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--outline); 
+    border-radius: var(--spacing-md);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
+    width: max-content;
+    min-width: 8rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dropdown-item {
+    color: var(--text-white);
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-yellow); 
+    color: var(--outline);
 }
