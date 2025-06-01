@@ -1,14 +1,14 @@
 /* Font declarations */
 @font-face {
   font-family: 'Futura Bold';
-  src: url('../assets/fonts/FuturaBold.ttf') format('ttf');
+  src: url('../assets/fonts/FuturaBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Futura Condensed';
-  src: url('../assets/fonts/FuturaCondensed.ttf') format('ttf');
+  src: url('../assets/fonts/FuturaCondensed.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

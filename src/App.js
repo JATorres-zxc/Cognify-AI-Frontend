@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/global.css';
 
 // Import actual components
+import Home from './pages/Home/Home';
 import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
 
 // Simplified placeholder components
-const Home = () => <div className="page">Home Page</div>;
 const Notes = () => <div className="page">Notes Page</div>;
 const Quiz = () => <div className="page">Quiz Page</div>;
 const Flashcards = () => <div className="page">Flashcards Page</div>;

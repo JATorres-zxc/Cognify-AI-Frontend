@@ -1,0 +1,10 @@
+.header {
+    background-color: var(--primary-yellow);
+    width: 100%;
+    height: 10vh;
+}
+
+.img {
+    width: 100px;
+    height: auto;
+}
