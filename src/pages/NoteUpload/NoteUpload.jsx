@@ -17,7 +17,7 @@ const NoteUpload = () => {
                 <div className='line'></div>
 
                 <div className='btn-container'>
-                    <button className='signup-btn'>
+                    <button className='upload-btn'>
                         Upload
                     </button>
                 </div>

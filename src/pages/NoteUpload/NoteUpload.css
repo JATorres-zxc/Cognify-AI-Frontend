@@ -40,7 +40,7 @@
     height: 500px;
 }
 
-.signup-btn {
+.upload-btn {
     width: 55%;
     cursor: pointer;
     background-color: var(--outline);
@@ -48,5 +48,6 @@
     border-radius: var(--button-radius);
     font-family: var(--font-roboto-flex);
     font-size: 2.5rem;
+    color: white;
     padding: 1rem 1rem;
 }
