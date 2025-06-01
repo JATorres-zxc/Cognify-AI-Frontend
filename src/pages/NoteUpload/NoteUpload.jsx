@@ -15,8 +15,16 @@ const NoteUpload = () => {
                     <h1>Generate Notes</h1>
                 </div>
                 <div className='line'></div>
+
+                <div className='btn-container'>
+                    <button className='signup-btn'>
+                        Upload
+                    </button>
+                </div>
+
                 <div className='note-container'>
                 </div>
+                
             </div>
 
             <div>

@@ -39,3 +39,14 @@
     width: 75%;
     height: 500px;
 }
+
+.signup-btn {
+    width: 55%;
+    cursor: pointer;
+    background-color: var(--outline);
+    border: 3px solid black;
+    border-radius: var(--button-radius);
+    font-family: var(--font-roboto-flex);
+    font-size: 2.5rem;
+    padding: 1rem 1rem;
+}
