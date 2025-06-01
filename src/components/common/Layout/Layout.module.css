@@ -1,0 +1,45 @@
+.layout {
+  min-height: 100vh;
+  background-color: var(--light-gray);
+}
+
+.header {
+  background-color: var(--primary-yellow);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+.header h1 {
+  color: var(--primary-black);
+  margin: 0;
+}
+
+.header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header nav a {
+  color: var(--primary-black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.header nav button {
+  background-color: var(--primary-black);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}

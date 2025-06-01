@@ -1,0 +1,61 @@
+/* Font declarations */
+@font-face {
+  font-family: 'Futura Bold';
+  src: url('../assets/fonts/FuturaBold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Condensed';
+  src: url('../assets/fonts/FuturaCondensed.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto and Roboto Flex are available through Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Flex:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.cdnfonts.com/css/futura-display');
+
+:root {
+  /* Colors */
+  --primary-yellow: #FFDC2E;
+  --primary-black: #2D2B29;
+  --red: #BF2629;
+  --white: #F4ECEC;
+
+  --text-white: #FEF9F9;
+  --outline: #444444;
+  --btn: #292626;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border */
+  --border-radius: 8px;
+  --button-radius: 12px;
+  
+  /* Shadow */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Font Families */
+  --font-jaro: 'Jaro', sans-serif;
+  --font-futura-display: 'Futura Display', sans-serif;
+  --font-futura-bold: 'Futura Bold', sans-serif;
+  --font-futura-cn: 'Futura Condensed', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-roboto-flex: 'Roboto Flex', sans-serif;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-roboto);
+  background-color: var(--white);
+}
