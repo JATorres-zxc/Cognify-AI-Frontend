@@ -8,10 +8,10 @@ import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
 import Notes from './pages/NoteUpload/NoteUpload';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
+import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
 
 // Simplified placeholder components
 const Flashcards = () => <div className="page">Flashcards Page</div>;
-const Summarizer = () => <div className="page">Summarizer Page</div>;
 
 function App() {
   return (
