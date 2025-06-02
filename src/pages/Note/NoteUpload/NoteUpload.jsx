@@ -5,19 +5,29 @@ import Footer from '../../../components/common/Footer/Footer';
 import styles from './NoteUpload.module.css';
 import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
 import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
+import TitleModal from '../../../components/modals/TitleModal/TitleModal';
 
 const NoteUpload = () => {
     const [isFileModalOpen, setFileModalOpen] = useState(false);
     const [isNotesModalOpen, setNotesModalOpen] = useState(false);
+    const [isTitleModalOpen, setTitleModalOpen] = useState(false);
 
     const openFileModal = () => {
         setFileModalOpen(true);
         setNotesModalOpen(false);
+        setTitleModalOpen(false);
     }
 
     const openNotesModal = () => {
         setFileModalOpen(false);
         setNotesModalOpen(true);
+        setTitleModalOpen(false);
+    }
+
+    const openTitleModal = () => {
+        setFileModalOpen(false);
+        setNotesModalOpen(false);
+        setTitleModalOpen(true);
     }
     
     return (
@@ -53,11 +63,18 @@ const NoteUpload = () => {
                 isOpen={isFileModalOpen}
                 onClose={()=> setFileModalOpen(false)}
                 onSelectNotes={openNotesModal}
+                onSelectUploadPDF={openTitleModal}
             />
 
             <NotesSelectionModal
                 isOpen= {isNotesModalOpen}
                 onClose={()=> setNotesModalOpen(false)}
+            />
+
+            <TitleModal
+                isOpen= {isTitleModalOpen}
+                onClose= {()=> setTitleModalOpen(false)}
+                variant= "note"
             />
 
         </div>
