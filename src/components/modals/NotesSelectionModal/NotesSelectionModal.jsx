@@ -3,6 +3,15 @@ import styles from './NotesSelectionModal.module.css';
 import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
 
 const NotesSelectionModal = ({ isOpen, onClose}) => {
+    //temporary placeholder values, replace with logic when backend is done please thanks
+    const notes = [
+    { id: 1, title: "Note 1" },
+    { id: 2, title: "Meeting Notes" },
+    { id: 3, title: "Shopping List" },
+    { id: 4, title: "Project Plan" },
+    { id: 5, title: "Ideas" },
+    ];
+
     if (!isOpen) return null;
 
     return (
@@ -11,10 +20,13 @@ const NotesSelectionModal = ({ isOpen, onClose}) => {
                 <button onClick={onClose} className={styles.closeBtn}>×</button>
                 
                 <div className={styles.buttonColumn}>
-                    <button className={styles.modalBtn}>
-                        <img src={tempIcon} alt="Upload" className={styles.icon} />
-                        Upload PDF
-                    </button>
+                    {notes.map(note => (
+                        <button className={styles.modalBtn}>
+                            <img src={tempIcon} alt="Note Icon" className={styles.icon} />
+                            {note.title}
+                        </button>
+                    ))}
+                    
                 </div>
             </div>
         </div>
