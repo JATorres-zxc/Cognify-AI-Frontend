@@ -1,10 +1,12 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
 import styles from './FlashcardGenerator.module.css';
+import Modal from '../../../components/modals/FileUploadModal/FileUploadModal';
 
 const FlashcardGenerator = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    
     return (
         <div className={styles["home"]}>
             <div>
@@ -17,7 +19,10 @@ const FlashcardGenerator = () => {
                 <div className={styles["line"]}></div>
 
                 <div className="btn-container">
-                    <button className={styles["upload-btn"]}>
+                    <button 
+                    className={styles["upload-btn"]}
+                    onClick={() => setModalOpen(true)}
+                    >
                         Upload
                     </button>
                 </div>
@@ -33,6 +38,9 @@ const FlashcardGenerator = () => {
             <div>
                 <Footer />
             </div>
+
+            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+            </Modal>
         </div>
     );
 };
