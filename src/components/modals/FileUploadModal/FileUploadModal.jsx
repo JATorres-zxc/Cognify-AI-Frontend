@@ -2,16 +2,15 @@ import React from 'react';
 import styles from './FileUploadModal.module.css';
 import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
 
-const FileUploadModal = ({ isOpen, onClose, children }) => {
+const FileUploadModal = ({ isOpen, onClose,}) => {
     if (!isOpen) return null;
 
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
+
                 <button onClick={onClose} className={styles.closeBtn}>×</button>
-                <div className={styles.content}>
-                    {children}
-                </div>
+
                 <div className={styles.buttonColumn}>
                     <button className={styles.modalBtn}>
                         <img src={tempIcon} alt="Upload" className={styles.icon} />
