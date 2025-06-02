@@ -1,0 +1,24 @@
+import React from 'react';
+import styles from './NotesSelectionModal.module.css';
+import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
+
+const NotesSelectionModal = ({ isOpen, onClose}) => {
+    if (!isOpen) return null;
+
+    return (
+        <div className={styles.overlay}>
+            <div className={styles.modal}>
+                <button onClick={onClose} className={styles.closeBtn}>×</button>
+                
+                <div className={styles.buttonColumn}>
+                    <button className={styles.modalBtn}>
+                        <img src={tempIcon} alt="Upload" className={styles.icon} />
+                        Upload PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default NotesSelectionModal;
