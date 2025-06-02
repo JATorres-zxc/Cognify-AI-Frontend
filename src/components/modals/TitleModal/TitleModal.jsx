@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './TitleModal.module.css';
 
-const TitleModal = ({ isOpen, onClose, variant }) => {
+const TitleModal = ({ isOpen, onClose, variant, redirectTo  }) => {
     const [title, setTitle] = useState('');
     const [count, setCount] = useState('');
+    const navigate = useNavigate();
 
     if (!isOpen) return null;
 
     const handleGenerate = () => {
-        console.log({
-        variant,
-        title,
-        ...(variant !== 'note' && { count }),
-        });
+        const payload = {
+            variant,
+            title,
+            ...(variant !== 'note' && { count }),
+        };
+        
         // Handle submission logic here
+        navigate(redirectTo, { state: payload });
     };
 
     return (

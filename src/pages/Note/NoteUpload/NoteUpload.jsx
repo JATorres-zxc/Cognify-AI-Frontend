@@ -75,6 +75,7 @@ const NoteUpload = () => {
                 isOpen= {isTitleModalOpen}
                 onClose= {()=> setTitleModalOpen(false)}
                 variant= "note"
+                redirectTo="/noteoutput"
             />
 
         </div>
