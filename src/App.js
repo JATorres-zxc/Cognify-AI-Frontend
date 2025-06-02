@@ -6,7 +6,7 @@ import './styles/global.css';
 import Home from './pages/Home/Home';
 import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
-import Notes from './pages/NoteUpload/NoteUpload';
+import Notes from './pages/Note/NoteUpload/NoteUpload';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
 import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator'

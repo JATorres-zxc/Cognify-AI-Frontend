@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
-import Header from '../../components/common/Header/Header';
-import Footer from '../../components/common/Footer/Footer';
+import Header from '../../../components/common/Header/Header';
+import Footer from '../../../components/common/Footer/Footer';
 import styles from './NoteUpload.module.css';
-import FileUploadModal from '../../components/modals/FileUploadModal/FileUploadModal';
-import NotesSelectionModal from '../../components/modals/NotesSelectionModal/NotesSelectionModal';
+import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
+import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 
 const NoteUpload = () => {
     const [isFileModalOpen, setFileModalOpen] = useState(false);
