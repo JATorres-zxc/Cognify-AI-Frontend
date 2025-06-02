@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
 import styles from './SummaryGenerator.module.css';
+import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
+import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 
 const SummaryGenerator = () => {
+    const [isFileModalOpen, setFileModalOpen] = useState(false);
+    const [isNotesModalOpen, setNotesModalOpen] = useState(false);
+
+    const openFileModal = () => {
+        setFileModalOpen(true);
+        setNotesModalOpen(false);
+    }
+
+    const openNotesModal = () => {
+        setFileModalOpen(false);
+        setNotesModalOpen(true);
+    }
+
     return (
         <div className={styles["home"]}>
             <div>
@@ -17,7 +32,10 @@ const SummaryGenerator = () => {
                 <div className={styles['line']}></div>
 
                 <div className='btn-container'>
-                    <button className={styles['upload-btn']}>
+                    <button 
+                    className={styles['upload-btn']}
+                    onClick={() => openFileModal()}
+                    >
                         Upload
                     </button>
                 </div>
@@ -30,6 +48,18 @@ const SummaryGenerator = () => {
             <div>
                 <Footer />
             </div>
+
+            <FileUploadModal
+                isOpen={isFileModalOpen}
+                onClose={()=> setFileModalOpen(false)}
+                onSelectNotes={openNotesModal}
+            />
+
+            <NotesSelectionModal
+                isOpen= {isNotesModalOpen}
+                onClose={()=> setNotesModalOpen(false)}
+            />
+
         </div>
     );
 };
