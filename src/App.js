@@ -10,6 +10,7 @@ import Notes from './pages/Note/NoteUpload/NoteUpload';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
 import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator'
+import NoteOutput from './pages/Note/NoteOutput/NoteOutput'
 
 // Simplified placeholder components
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/summarizer" element={<Summarizer />} />
+            <Route path="/noteoutput" element={<NoteOutput />} />
           </Routes>
         </main>
       </div>
