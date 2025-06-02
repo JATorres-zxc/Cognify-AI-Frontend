@@ -3,9 +3,22 @@ import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
 import styles from './FlashcardGenerator.module.css';
 import Modal from '../../../components/modals/FileUploadModal/FileUploadModal';
+import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
+import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 
 const FlashcardGenerator = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
+    const [isFileModalOpen, setFileModalOpen] = useState(false);
+    const [isNotesModalOpen, setNotesModalOpen] = useState(false);
+
+    const openFileModal = () => {
+        setFileModalOpen(true);
+        setNotesModalOpen(false);
+    }
+
+    const openNotesModal = () => {
+        setFileModalOpen(false);
+        setNotesModalOpen(true);
+    }
     
     return (
         <div className={styles["home"]}>
@@ -21,7 +34,7 @@ const FlashcardGenerator = () => {
                 <div className="btn-container">
                     <button 
                     className={styles["upload-btn"]}
-                    onClick={() => setModalOpen(true)}
+                    onClick={() => openFileModal()}
                     >
                         Upload
                     </button>
@@ -39,8 +52,17 @@ const FlashcardGenerator = () => {
                 <Footer />
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-            </Modal>
+            <FileUploadModal
+                isOpen={isFileModalOpen}
+                onClose={()=> setFileModalOpen(false)}
+                onSelectNotes={openNotesModal}
+            />
+
+            <NotesSelectionModal
+                isOpen= {isNotesModalOpen}
+                onClose={()=> setNotesModalOpen(false)}
+            />
+
         </div>
     );
 };

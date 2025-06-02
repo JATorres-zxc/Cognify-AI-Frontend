@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FileUploadModal.module.css';
 import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
 
-const FileUploadModal = ({ isOpen, onClose,}) => {
+const FileUploadModal = ({ isOpen, onClose, onSelectNotes}) => {
     if (!isOpen) return null;
 
     return (
@@ -16,7 +16,10 @@ const FileUploadModal = ({ isOpen, onClose,}) => {
                         <img src={tempIcon} alt="Upload" className={styles.icon} />
                         Upload PDF
                     </button>
-                    <button className={styles.modalBtn}>
+                    <button 
+                    className={styles.modalBtn}
+                    onClick={onSelectNotes}
+                    >
                         <img src={tempIcon} alt="Notes" className={styles.icon} />
                         Select from Notes
                     </button>
