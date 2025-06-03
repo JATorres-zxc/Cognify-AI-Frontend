@@ -1,1 +1,1 @@
-export { default } from './NoteSelectionModal';
+export { default } from './NotesSelectionModal';
