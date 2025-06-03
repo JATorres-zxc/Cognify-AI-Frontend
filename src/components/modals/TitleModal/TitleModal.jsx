@@ -16,14 +16,14 @@ const TitleModal = ({ isOpen, onClose, variant, redirectTo  }) => {
             ...(variant !== 'note' && { count }),
         };
         
-        // Handle submission logic here
+        // Logic to create notes/summary/etc. depending on the variant 
         navigate(redirectTo, { state: payload });
     };
 
     return (
         <div className={styles.overlay}>
         <div className={styles.modal}>
-            <button onClick={onClose} className={styles.closeBtn}>×</button>
+            <button aria-label="Close"onClick={onClose} className={styles.closeBtn}>×</button>
 
             <div className={styles.formGroup}>
             <label>Title:</label>

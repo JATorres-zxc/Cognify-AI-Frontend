@@ -4,6 +4,7 @@ import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace
 
 const NotesSelectionModal = ({ isOpen, onClose}) => {
     //temporary placeholder values, replace with logic when backend is done please thanks
+    //Logic is getting Notes from already built notes
     const notes = [
     { id: 1, title: "Note 1" },
     { id: 2, title: "Meeting Notes" },
@@ -17,7 +18,7 @@ const NotesSelectionModal = ({ isOpen, onClose}) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <button onClick={onClose} className={styles.closeBtn}>×</button>
+                <button aria-label="Close" onClick={onClose} className={styles.closeBtn}>×</button>
                 
                 <div className={styles.buttonColumn}>
                     {notes.map(note => (
