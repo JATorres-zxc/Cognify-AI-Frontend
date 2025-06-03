@@ -1,39 +1,25 @@
-import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import React from 'react';
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
 import styles from './NoteUpload.module.css';
 import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
 import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 import TitleModal from '../../../components/modals/TitleModal/TitleModal';
+import { useModalStack } from '../../../hooks/useModalStack';
+
+const MODALS = {
+    FILE: 'file',
+    NOTES: 'notes',
+    TITLE: 'title',
+};
 
 const NoteUpload = () => {
-    const [isFileModalOpen, setFileModalOpen] = useState(false);
-    const [isNotesModalOpen, setNotesModalOpen] = useState(false);
-    const [isTitleModalOpen, setTitleModalOpen] = useState(false);
+    const { isOpen, open, close } = useModalStack(Object.values(MODALS));
 
-    const openFileModal = () => {
-        setFileModalOpen(true);
-        setNotesModalOpen(false);
-        setTitleModalOpen(false);
-    }
-
-    const openNotesModal = () => {
-        setFileModalOpen(false);
-        setNotesModalOpen(true);
-        setTitleModalOpen(false);
-    }
-
-    const openTitleModal = () => {
-        setFileModalOpen(false);
-        setNotesModalOpen(false);
-        setTitleModalOpen(true);
-    }
-    
     return (
         <div className={styles["home"]}>
             <div>
-            <Header />
+                <Header />
             </div>
             <div className={styles["main"]}>
                 <div className={styles["main-header"]}>
@@ -43,8 +29,8 @@ const NoteUpload = () => {
 
                 <div className="btn-container">
                     <button 
-                    className={styles["upload-btn"]}
-                    onClick={() => openFileModal()}
+                        className={styles["upload-btn"]}
+                        onClick={() => open(MODALS.FILE)}
                     >
                         Upload
                     </button>
@@ -52,7 +38,6 @@ const NoteUpload = () => {
 
                 <div className={styles["note-container"]}>
                 </div>
-                
             </div>
 
             <div>
@@ -60,24 +45,23 @@ const NoteUpload = () => {
             </div>
 
             <FileUploadModal
-                isOpen={isFileModalOpen}
-                onClose={()=> setFileModalOpen(false)}
-                onSelectNotes={openNotesModal}
-                onSelectUploadPDF={openTitleModal}
+                isOpen={isOpen(MODALS.FILE)}
+                onClose={close}
+                onSelectNotes={() => open(MODALS.NOTES)}
+                onSelectUploadPDF={() => open(MODALS.TITLE)}
             />
 
             <NotesSelectionModal
-                isOpen= {isNotesModalOpen}
-                onClose={()=> setNotesModalOpen(false)}
+                isOpen={isOpen(MODALS.NOTES)}
+                onClose={close}
             />
 
             <TitleModal
-                isOpen= {isTitleModalOpen}
-                onClose= {()=> setTitleModalOpen(false)}
-                variant= "note"
+                isOpen={isOpen(MODALS.TITLE)}
+                onClose={close}
+                variant="note"
                 redirectTo="/noteoutput"
             />
-
         </div>
     );
 };
