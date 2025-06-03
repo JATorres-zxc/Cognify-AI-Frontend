@@ -22,6 +22,7 @@
 
 .stats {
     width: 85%;
+    max-width: 70vw;
     height: 65vh;
 }
 
@@ -51,9 +52,11 @@
 .body .content .stat-card {
     background-color: var(--primary-yellow);
     width: 25%;
+    max-width: 250px;
     height: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,6 +134,7 @@
 
 .materials .section {
     width: 85%;
+    max-width: 70vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +142,7 @@
 }
 
 .section-header {
-    width: 100%;
+    width: 80%;
     font-family: var(--font-futura-bold);
     font-size: 3.5rem;
 }
@@ -218,6 +222,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-icon-container:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .closeIcon {

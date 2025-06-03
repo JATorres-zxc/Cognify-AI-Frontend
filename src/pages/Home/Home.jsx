@@ -34,14 +34,23 @@ const Home = () => {
         <div className='icon-cont'>
           <img src={arrow} alt="arrow" className='rotate arrow-icon' />
         </div>
-        <div className='card'>
-          Notes
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='notes'></div>
+          <div className='card'>
+            Notes
+          </div>
         </div>
-        <div className='card'>
-          Flashcards
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='flashcards'></div>
+          <div className='card'>
+            Flashcards
+          </div>
         </div>
-        <div className='card'>
-          Summaries
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='summaries'></div>
+          <div className='card'>
+            Summaries
+          </div>
         </div>
 
         <div className='icon-cont'>

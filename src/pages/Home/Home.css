@@ -54,7 +54,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 3rem;
+    gap: 6rem;
 }
 
 .icon-cont {
@@ -74,6 +74,35 @@
     height: auto;
 }
 
+.card-wrapper {
+    margin-top: 30px;
+    position: relative;
+    width: 250px;
+    height: 350px;
+}
+
+.card-tilt {
+    position: absolute;
+    top: 2px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    z-index: 0;
+}
+
+.card-tilt#notes {
+    transform: rotate(-9.5deg);
+}
+
+.card-tilt#flashcards {
+    transform: rotate(-175deg);
+}
+
+.card-tilt#summaries {
+    transform: rotate(-170deg);
+}
+
 .card {
     background-color: var(--text-white);
     border-radius: var(--spacing-md);
@@ -85,6 +114,8 @@
     align-items: center;
     font-family: var(--font-futura-bold);
     font-size: 2rem;
+    position: inherit;
+    z-index: 1;
 }
 
 .description {

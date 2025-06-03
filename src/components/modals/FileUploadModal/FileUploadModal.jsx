@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FileUploadModal.module.css';
-import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
+import folderIcon from '../../../assets/icons/folder.svg';
+import noteIcon from '../../../assets/icons/note.svg';   // Replace with actual path
 
 const FileUploadModal = ({ isOpen, onClose, onSelectNotes, onSelectUploadPDF}) => {
     if (!isOpen) return null;
@@ -16,14 +17,14 @@ const FileUploadModal = ({ isOpen, onClose, onSelectNotes, onSelectUploadPDF}) =
                     className={styles.modalBtn}
                     onClick={onSelectUploadPDF}
                     >
-                        <img src={tempIcon} alt="Upload" className={styles.icon} />
+                        <img src={noteIcon} alt="Upload" className={styles.icon} />
                         Upload PDF
                     </button>
                     <button 
                     className={styles.modalBtn}
                     onClick={onSelectNotes}
                     >
-                        <img src={tempIcon} alt="Notes" className={styles.icon} />
+                        <img src={folderIcon} alt="Notes" className={styles.icon} />
                         Select from Notes
                     </button>
                 </div>
