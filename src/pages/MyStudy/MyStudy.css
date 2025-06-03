@@ -1,0 +1,246 @@
+#mystudyicon {
+    background-color: gray;
+}
+
+.mystudy {
+    background-color: var(--white);
+}
+
+.stats-header .line {
+    background-color: var(--primary-yellow);
+    width: 100%;
+}
+
+.mystudy .main {
+    background-color: white;
+    margin-top: 5vh;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats {
+    width: 85%;
+    max-width: 70vw;
+    height: 65vh;
+}
+
+.stats-header {
+    height: auto;
+    display: flex;
+    align-items: center;    
+    flex-direction: column;
+}
+
+.stats-header h1 {
+    font-family: var(--font-futura-bold);
+    font-size: 3.5rem;
+}
+
+.stats .body {
+    height: auto;
+}
+
+.stats .body .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.body .content .stat-card {
+    background-color: var(--primary-yellow);
+    width: 25%;
+    max-width: 250px;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stat-card .stat-number {
+    font-family: var(--font-futura-bold);
+    font-size: 8rem;
+    color: white;
+}
+
+.stat-card p {
+    font-family: var(--font-futura-cn);
+    font-size: 2rem;
+    color: var(--outline);
+    text-align: center;
+    padding: 0 2.5rem;
+}
+
+.stats .progress {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 8rem;
+}
+
+.stats .progress h1 {
+    font-family: var(--font-futura-cn);
+    text-align: center;
+}
+
+.performance-bar-container {
+  width: 85%;
+  max-width: 1000px;
+  height: 60px;
+  background-color: #3a3a3a; /* dark background */
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #ffd700; /* yellow */
+  border-radius: 10px 20px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 16px;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-family: var(--font-futura-bold);
+  white-space: nowrap;
+}
+
+.mystudy .materials {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5rem auto;
+}
+
+.materials .section {
+    width: 85%;
+    max-width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-header {
+    width: 80%;
+    font-family: var(--font-futura-bold);
+    font-size: 3.5rem;
+}
+
+.section-header .line {
+    background-color: var(--primary-yellow);
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+/* Grid of cards */
+.card-container {
+    margin: 2rem auto;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.material-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 350px;
+    gap: 10px;
+}
+
+/* Left icon */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noteIcon {
+  width: 48px;
+  height: 48px;
+}
+
+/* Title + Date */
+.card-data {
+  flex: 1;
+  font-family: var(--font-roboto-flex);
+  color: var(--outline);
+}
+
+.card-data .title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-data p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+/* Right actions */
+.action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-icon-container {
+  background-color: var(--outline);
+  border-radius: 50%;
+  padding: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.action-icon-container:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.closeIcon {
+  background-color: var(--red);
+  border-radius: 50%;
+  padding: 8px;
+  width: 28px;
+  height: auto;
+}
+
+.downloadIcon {
+  padding: 6px;
+  width: 28px;
+  height: auto;
+}
+
