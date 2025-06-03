@@ -6,12 +6,13 @@ import './styles/global.css';
 import Home from './pages/Home/Home';
 import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
+import Notes from './pages/Note/NoteUpload/NoteUpload';
+import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
+import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
+import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator'
+import NoteOutput from './pages/Note/NoteOutput/NoteOutput'
 
 // Simplified placeholder components
-const Notes = () => <div className="page">Notes Page</div>;
-const Quiz = () => <div className="page">Quiz Page</div>;
-const Flashcards = () => <div className="page">Flashcards Page</div>;
-const Summarizer = () => <div className="page">Summarizer Page</div>;
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/summarizer" element={<Summarizer />} />
+            <Route path="/noteoutput" element={<NoteOutput />} />
           </Routes>
         </main>
       </div>

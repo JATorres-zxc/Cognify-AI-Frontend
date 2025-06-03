@@ -1,0 +1,74 @@
+.home {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--white);
+    height: auto;
+    padding-bottom: 3rem;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-header h1 {
+    font-family: var(--font-futura-bold);
+    font-size: 4.5rem;
+}
+
+.line {
+    border: 5px solid var(--primary-yellow);
+    border-radius: 10px;
+    margin-top: -30px;
+    width: 75%;
+}
+
+.note-wrapper {
+    margin-top: 30px;
+    position: relative;
+    width: 75%;
+    height: 500px;
+}
+
+.note-tilt {
+    position: absolute;
+    top: 2px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 85, 72, 0.15);
+    border-radius: var(--button-radius);
+    transform: rotate(-3.5deg);
+    z-index: 0;
+}
+
+.note-container {
+    position: relative;
+    background-color: var(--text-white);
+    border-radius: var(--button-radius);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+.upload-btn {
+    width: 55%;
+    cursor: pointer;
+    background-color: var(--outline);
+    border: 3px solid black;
+    border-radius: var(--button-radius);
+    font-family: var(--font-roboto-flex);
+    font-size: 2.5rem;
+    color: white;
+    padding: 1rem 1rem;
+}

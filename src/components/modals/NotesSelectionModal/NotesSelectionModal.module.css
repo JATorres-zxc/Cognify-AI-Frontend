@@ -1,0 +1,61 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.buttonColumn {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 1.5rem;
+}
+
+.modalBtn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-yellow);
+    color: var(--outline);
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.modalBtn:hover {
+    background-color: rgba(255, 162, 0, 0.5);
+}
+
+.icon {
+    width: 1.5rem;  /* Adjust based on your button size */
+    height: 1.5rem;
+    object-fit: contain;
+    margin-right: 8px;
+}

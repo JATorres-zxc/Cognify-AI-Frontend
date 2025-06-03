@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
-import styles from './SummaryGenerator.module.css';
+import styles from './NoteOutput.module.css';
 import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
 import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 import TitleModal from '../../../components/modals/TitleModal/TitleModal';
 
-
-const SummaryGenerator = () => {
+const NoteOutput = () => {
     const [isFileModalOpen, setFileModalOpen] = useState(false);
     const [isNotesModalOpen, setNotesModalOpen] = useState(false);
     const [isTitleModalOpen, setTitleModalOpen] = useState(false);
-    
 
     const openFileModal = () => {
         setFileModalOpen(true);
@@ -31,28 +29,28 @@ const SummaryGenerator = () => {
         setNotesModalOpen(false);
         setTitleModalOpen(true);
     }
-
+    
     return (
         <div className={styles["home"]}>
             <div>
             <Header />
             </div>
-            <div className={styles['main']}>
-                <div className={styles['main-header']}>
-                    <h1>Summary Generator</h1>
+            <div className={styles["main"]}>
+                <div className={styles["main-header"]}>
+                    <h1>Notes Title</h1>
                 </div>
-                <div className={styles['line']}></div>
+                <div className={styles["line"]}></div>
 
-                <div className='btn-container'>
+                <div className="btn-container">
                     <button 
-                    className={styles['upload-btn']}
+                    className={styles["upload-btn"]}
                     onClick={() => openFileModal()}
                     >
-                        Upload
+                        Upload Again
                     </button>
                 </div>
 
-                <div className={styles['note-container']}>
+                <div className={styles["note-container"]}>
                 </div>
                 
             </div>
@@ -77,10 +75,11 @@ const SummaryGenerator = () => {
                 isOpen= {isTitleModalOpen}
                 onClose= {()=> setTitleModalOpen(false)}
                 variant= "note"
+                redirectTo="/noteoutput"
             />
 
         </div>
     );
 };
 
-export default SummaryGenerator;
+export default NoteOutput;
