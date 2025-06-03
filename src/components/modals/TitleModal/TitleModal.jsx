@@ -23,7 +23,7 @@ const TitleModal = ({ isOpen, onClose, variant, redirectTo  }) => {
     return (
         <div className={styles.overlay}>
         <div className={styles.modal}>
-            <button onClick={onClose} className={styles.closeBtn}>×</button>
+            <button aria-label="Close"onClick={onClose} className={styles.closeBtn}>×</button>
 
             <div className={styles.formGroup}>
             <label>Title:</label>

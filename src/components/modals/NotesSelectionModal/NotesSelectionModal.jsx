@@ -17,7 +17,7 @@ const NotesSelectionModal = ({ isOpen, onClose}) => {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <button onClick={onClose} className={styles.closeBtn}>×</button>
+                <button aria-label="Close" onClick={onClose} className={styles.closeBtn}>×</button>
                 
                 <div className={styles.buttonColumn}>
                     {notes.map(note => (
