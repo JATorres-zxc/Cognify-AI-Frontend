@@ -8,9 +8,10 @@ import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
 import Notes from './pages/Note/NoteUpload/NoteUpload';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
-import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator'
-import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator'
-import NoteOutput from './pages/Note/NoteOutput/NoteOutput'
+import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator';
+import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator';
+import NoteOutput from './pages/Note/NoteOutput/NoteOutput';
+import MyStudy from './pages/MyStudy/MyStudy';
 
 // Simplified placeholder components
 
@@ -20,6 +21,7 @@ function App() {
       <div className="App">
         <nav className="nav">
           <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
           <a href="/notes">Notes</a>
           <a href="/quiz">Quiz</a>
           <a href="/flashcards">Flashcards</a>
@@ -31,6 +33,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/mystudy" element={<MyStudy />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/notes" element={<Notes />} />

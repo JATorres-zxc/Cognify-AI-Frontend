@@ -1,11 +1,17 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LandingPageHeader from '../../components/common/Header/LandingPageHeader';
 import Footer from '../../components/common/Footer/Footer';
 import arrow from '../../assets/icons/arrow-right.svg';
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleSignUpPress = () => {
+    navigate('/signup');
+  }
+  
   return (
     <div className="home">
       <div>
@@ -112,7 +118,7 @@ const Home = () => {
           </div>
 
           <div className='btn-container'>
-            <button className='signup-btn'>
+            <button className='signup-btn' onClick={handleSignUpPress}>
               Sign Up
             </button>
           </div>
