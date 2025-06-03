@@ -16,7 +16,7 @@ const TitleModal = ({ isOpen, onClose, variant, redirectTo  }) => {
             ...(variant !== 'note' && { count }),
         };
         
-        // Handle submission logic here
+        // Logic to create notes/summary/etc. depending on the variant 
         navigate(redirectTo, { state: payload });
     };
 

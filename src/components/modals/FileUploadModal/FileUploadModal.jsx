@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './FileUploadModal.module.css';
-import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
+import tempIcon from '../../../assets/images/sensai smol logo.png'; 
+
+//Add logic for Uploading PDF
 
 const FileUploadModal = ({ isOpen, onClose, onSelectNotes, onSelectUploadPDF}) => {
     if (!isOpen) return null;
