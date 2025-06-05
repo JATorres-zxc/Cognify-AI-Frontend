@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import LandingPageHeader from '../../components/common/Header/LandingPageHeader';
 import Footer from '../../components/common/Footer/Footer';
 import arrow from '../../assets/icons/arrow-right.svg';
+import noteUpload from '../../assets/images/note upload.png';
+import fcGenerator from '../../assets/images/flashcard-generator.png';
+import summarizer from '../../assets/images/summarizer.png';
+import quesGenerator from '../../assets/images/question-generator.png';
+import senseiAI from '../../assets/images/ai sensei.png';
 import './Home.css';
 
 const Home = () => {
@@ -26,7 +31,7 @@ const Home = () => {
         <div className='line'></div>
 
         <div className='image-container'>
-
+          <img src={senseiAI} alt="senseiAI" className='image-sensai' />
         </div>
 
       </div>
@@ -61,7 +66,7 @@ const Home = () => {
         <div className='all-desc-container'>
           <div className='desc-container'>
             <div className='desc-image'>
-
+              <img src={noteUpload} alt="noteUploadIMG" className='image' />
             </div>
             <div className='desc-text'>
               <h3>Note Upload</h3>
@@ -84,7 +89,7 @@ const Home = () => {
               </p>
             </div>
             <div className='desc-image'>
-              
+              <img src={fcGenerator} alt="fcIMG" className='image' />
             </div>
           </div>
 
@@ -92,7 +97,7 @@ const Home = () => {
 
           <div className='desc-container'>
             <div className='desc-image'>
-
+              <img src={summarizer} alt="summIMG" className='image' />
             </div>
             <div className='desc-text'>
               <h3>Summarization</h3>
@@ -113,7 +118,7 @@ const Home = () => {
               </p>
             </div>
             <div className='desc-image'>
-              
+              <img src={quesGenerator} alt="qqIMG" className='image' />
             </div>
             
           </div>
