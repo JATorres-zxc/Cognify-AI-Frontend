@@ -17,8 +17,16 @@ const Header = () => {
         navigate('/');
     }
 
+    const handleUploadPress = () => {
+        navigate('/notes');
+    }
+
     const handleMyStudyPress = () => {
         navigate('/mystudy');
+    }
+
+    const handleLogoutPress = () => {
+        navigate('/login');
     }
 
     const toggleToolsDropdown = () => {
@@ -47,7 +55,7 @@ const Header = () => {
             </div>
 
             <div className='navigation'>
-                <div className='nav-container'>
+                <div className='nav-container' onClick={handleUploadPress}>
                     <div className='nav-icon'>
                         <img src={uploadIcon} alt='Upload' className='icon' />
                     </div>
@@ -89,7 +97,7 @@ const Header = () => {
             </div>
 
             <div className='login-btn-container'>
-                <button className='btn'>
+                <button className='btn' onClick={handleLogoutPress}>
                     Logout
                     <img src={userIcon} alt='Login' className='login-icon' />
                 </button>

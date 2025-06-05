@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
-import { useAuth } from '../../../contexts/AuthContext';
 import ApiService from '../../../services/api';
 
 const LoginForm = () => {
@@ -10,8 +9,11 @@ const LoginForm = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const { login } = useAuth();
     const navigate = useNavigate();
+
+    const handleLoginPress = () => {
+        navigate('/login');
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,7 +79,7 @@ const LoginForm = () => {
                 </div>
 
                 <div className="btn-container">
-                    <button type="submit" className="login-btn" disabled={loading}>
+                    <button type="submit" className="login-btn" disabled={loading} onClick={handleLoginPress}>
                         {loading ? 'Logging in...' : 'Log In'}
                     </button>
                     <a href="/signup"> Don't have an account?</a>

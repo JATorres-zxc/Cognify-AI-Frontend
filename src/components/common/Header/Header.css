@@ -40,6 +40,10 @@
     position: relative;
 }
 
+#mystudyicon {
+    background-color: var(--outline);
+}
+
 .nav-text {
     color: var(--text-white);
     font-size: 0.7rem;

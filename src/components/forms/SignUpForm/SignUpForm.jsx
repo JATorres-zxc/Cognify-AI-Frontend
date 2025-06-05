@@ -1,10 +1,17 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSignUpPress = () => {
+        navigate('/login');
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,7 +60,7 @@ const SignUpForm = () => {
                 </div>
 
                 <div className="btn-container">
-                    <button type="submit" className="signup-btn">
+                    <button type="submit" className="signup-btn" onClick={handleSignUpPress}>
                         Sign Up
                     </button>
                     <a href="/login"> Already have an account?</a>

@@ -21,6 +21,10 @@ const Header = () => {
       navigate('/login');
     }
 
+    const handleUploadPress = () => {
+        navigate('/notes');
+    }
+
     const handleMyStudyPress = () => {
         navigate('/mystudy');
     }
@@ -51,7 +55,7 @@ const Header = () => {
             </div>
 
             <div className='navigation'>
-                <div className='nav-container'>
+                <div className='nav-container' onClick={handleUploadPress}>
                     <div className='nav-icon'>
                         <img src={uploadIcon} alt='Upload' className='icon' />
                     </div>
