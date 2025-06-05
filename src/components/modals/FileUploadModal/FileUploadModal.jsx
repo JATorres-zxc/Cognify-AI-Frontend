@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './FileUploadModal.module.css';
 import folderIcon from '../../../assets/icons/folder.svg';
-import noteIcon from '../../../assets/icons/note.svg';   // Replace with actual path
+import noteIcon from '../../../assets/icons/note.svg'; 
+
+//Add logic for Uploading PDF
 
 const FileUploadModal = ({ isOpen, onClose, onSelectNotes, onSelectUploadPDF}) => {
     if (!isOpen) return null;
@@ -10,7 +12,7 @@ const FileUploadModal = ({ isOpen, onClose, onSelectNotes, onSelectUploadPDF}) =
         <div className={styles.overlay}>
             <div className={styles.modal}>
 
-                <button onClick={onClose} className={styles.closeBtn}>×</button>
+                <button aria-label="Close" onClick={onClose} className={styles.closeBtn}>×</button>
 
                 <div className={styles.buttonColumn}>
                     <button 
