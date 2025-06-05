@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import sensaiLogo from '../../../assets/images/sensai logo.png';
 import toolsIcon from '../../../assets/icons/tools.svg';
 import myStudyIcon from '../../../assets/icons/mystudy.svg';
@@ -8,9 +9,17 @@ import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
 
 const Header = () => {
-
     const [isToolsOpen, setIsToolsOpen] = useState(false);
     const toolsRef = useRef(null);
+    const navigate = useNavigate();
+        
+    const handleLogoPress = () => {
+        navigate('/');
+    }
+
+    const handleMyStudyPress = () => {
+        navigate('/mystudy');
+    }
 
     const toggleToolsDropdown = () => {
         setIsToolsOpen(prev => !prev);
@@ -31,7 +40,7 @@ const Header = () => {
     return (
     <div className='header'>
         <div className='content'>
-            <img src={sensaiLogo} alt='SensAI Logo' className='logo' />
+            <img src={sensaiLogo} alt='SensAI Logo' className='logo' onClick={handleLogoPress} />
 
             <div className='search-container'>
                 <SearchBar />
@@ -47,7 +56,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className='nav-container' id='mystudyicon'>
+                <div className='nav-container' id='mystudyicon' onClick={handleMyStudyPress}>
                     <div className='nav-icon'>
                         <img src={myStudyIcon} alt='MyStudy' className='icon' />
                     </div>

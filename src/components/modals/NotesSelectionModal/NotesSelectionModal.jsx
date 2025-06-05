@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './NotesSelectionModal.module.css';
-import tempIcon from '../../../assets/images/sensai smol logo.png';   // Replace with actual path
+import noteIcon from '../../../assets/icons/note.svg';   // Replace with actual path
 
 const NotesSelectionModal = ({ isOpen, onClose}) => {
     //temporary placeholder values, replace with logic when backend is done please thanks
@@ -22,7 +22,7 @@ const NotesSelectionModal = ({ isOpen, onClose}) => {
                 <div className={styles.buttonColumn}>
                     {notes.map(note => (
                         <button className={styles.modalBtn}>
-                            <img src={tempIcon} alt="Note Icon" className={styles.icon} />
+                            <img src={noteIcon} alt="Note Icon" className={styles.icon} />
                             {note.title}
                         </button>
                     ))}

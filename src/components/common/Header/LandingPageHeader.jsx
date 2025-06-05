@@ -13,8 +13,16 @@ const Header = () => {
     const toolsRef = useRef(null);
     const navigate = useNavigate();
     
+    const handleLogoPress = () => {
+        navigate('/');
+    }
+
     const handleLogInPress = () => {
       navigate('/login');
+    }
+
+    const handleMyStudyPress = () => {
+        navigate('/mystudy');
     }
 
     const toggleToolsDropdown = () => {
@@ -36,7 +44,7 @@ const Header = () => {
     return (
     <div className='header'>
         <div className='content'>
-            <img src={sensaiLogo} alt='SensAI Logo' className='logo' />
+            <img src={sensaiLogo} alt='SensAI Logo' className='logo' onClick={handleLogoPress} />
 
             <div className='search-container'>
                 <SearchBar />
@@ -52,7 +60,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className='nav-container'>
+                <div className='nav-container' onClick={handleMyStudyPress}>
                     <div className='nav-icon'>
                         <img src={myStudyIcon} alt='MyStudy' className='icon' />
                     </div>
