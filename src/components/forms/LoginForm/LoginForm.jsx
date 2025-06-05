@@ -1,19 +1,15 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import ApiService from "../../../services/api/ApiService";
 import './LoginForm.css';
-import ApiService from '../../../services/api';
 
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
-
-    const handleLoginPress = () => {
-        navigate('/login');
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,16 +17,16 @@ const LoginForm = () => {
         setError('');
 
         try {
-            const data = await ApiService.login(email, password);
+            const data = await ApiService.login(username, password);
             
             // Store the tokens
             localStorage.setItem('access_token', data.access_token);
             localStorage.setItem('refresh_token', data.refresh_token);
             
-            // Redirect to dashboard or home page
-            window.location.href = '/dashboard';
-            
             console.log('Login successful:', data);
+
+            // Redirect to dashboard or home page
+            navigate('/');
         } catch (error) {
             console.error('Login error:', error);
             setError(error.message || 'Login failed');
@@ -55,11 +51,10 @@ const LoginForm = () => {
             )}
             <form onSubmit={handleSubmit} className="login-form">
                 <div className="form-group">
-                    <label className="label"> Email </label>
+                    <label className="label"> Username </label>
                     <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         required
                         className="input-field"
                         disabled={loading}
@@ -79,7 +74,7 @@ const LoginForm = () => {
                 </div>
 
                 <div className="btn-container">
-                    <button type="submit" className="login-btn" disabled={loading} onClick={handleLoginPress}>
+                    <button type="submit" className="login-btn" disabled={loading}>
                         {loading ? 'Logging in...' : 'Log In'}
                     </button>
                     <a href="/signup"> Don't have an account?</a>

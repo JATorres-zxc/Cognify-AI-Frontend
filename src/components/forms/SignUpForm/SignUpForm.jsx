@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import ApiService from "../../../services/api/ApiService";
 import './SignUpForm.css';
 
 const SignUpForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
 
@@ -13,11 +16,23 @@ const SignUpForm = () => {
         navigate('/login');
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Example: handle login logic
-        console.log('Email:', email);
-        console.log('Password:', password);
+        setLoading(true);
+        setError('');
+        
+        try {
+            const data = await ApiService.register(username, email, password);
+            console.log('Registration successful: ', data);
+
+            // Redirect to login page
+            navigate('/login');
+        } catch (error) {
+            console.error('Registration error:', error);
+            setError(error.message || 'Login failed');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -25,6 +40,15 @@ const SignUpForm = () => {
             <div className="signup-header">
                 <h1>Sign Up</h1>
             </div>
+            {error && (
+                <div className="error-message" style={{
+                    color: 'red', 
+                    marginBottom: '15px', 
+                    textAlign: 'center'
+                }}>
+                    {error}
+                </div>
+            )}
             <form onSubmit={handleSubmit} className="signup-form">
                 <div className="form-group">
                     <label className="label"> Username </label>
@@ -34,6 +58,7 @@ const SignUpForm = () => {
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         className="input-field"
+                        disabled={loading}
                     />
                 </div>
 
@@ -45,6 +70,7 @@ const SignUpForm = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         className="input-field"
+                        disabled={loading}
                     />
                 </div>
 
@@ -56,6 +82,7 @@ const SignUpForm = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         className="input-field"
+                        disabled={loading}
                     />
                 </div>
 
