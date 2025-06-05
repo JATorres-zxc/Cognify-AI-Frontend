@@ -41,10 +41,16 @@
 .image-container {
     margin-top: var(--spacing-xl);
     background-color: var(--text-white);
+    width: 55%;
+    max-width: 650px;
+    aspect-ratio: 4 / 3;
+}
+
+.image-sensai {
     border: 10px solid var(--outline);
     border-radius: var(--button-radius);
-    width: 50%;
-    height: 500px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
 }
 
 .features {
@@ -154,11 +160,15 @@
 }
 
 .desc-image {
-    background-color: var(--text-white);
+    width: 50%;
+    aspect-ratio: 4 / 3;
+}
+
+.image {
     border: 10px solid var(--outline);
     border-radius: 2rem;
-    width: 50%;
-    height: 20rem;
+    width: 100%;
+    aspect-ratio: 4 / 3;
 }
 
 .desc-text h3 {
