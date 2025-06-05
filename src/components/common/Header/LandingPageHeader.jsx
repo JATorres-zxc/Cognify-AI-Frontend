@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import sensaiLogo from '../../../assets/images/sensai logo.png';
 import toolsIcon from '../../../assets/icons/tools.svg';
 import myStudyIcon from '../../../assets/icons/mystudy.svg';
@@ -8,9 +9,13 @@ import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
 
 const Header = () => {
-
     const [isToolsOpen, setIsToolsOpen] = useState(false);
     const toolsRef = useRef(null);
+    const navigate = useNavigate();
+    
+    const handleLogInPress = () => {
+      navigate('/login');
+    }
 
     const toggleToolsDropdown = () => {
         setIsToolsOpen(prev => !prev);
@@ -80,8 +85,8 @@ const Header = () => {
             </div>
 
             <div className='login-btn-container'>
-                <button className='btn'>
-                    Logout
+                <button className='btn' onClick={handleLogInPress}>
+                    Login
                     <img src={userIcon} alt='Login' className='login-icon' />
                 </button>
             </div>

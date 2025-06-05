@@ -47,7 +47,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className='nav-container'>
+                <div className='nav-container' id='mystudyicon'>
                     <div className='nav-icon'>
                         <img src={myStudyIcon} alt='MyStudy' className='icon' />
                     </div>

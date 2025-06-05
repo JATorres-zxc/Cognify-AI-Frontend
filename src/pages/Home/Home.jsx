@@ -1,11 +1,17 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LandingPageHeader from '../../components/common/Header/LandingPageHeader';
 import Footer from '../../components/common/Footer/Footer';
 import arrow from '../../assets/icons/arrow-right.svg';
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleSignUpPress = () => {
+    navigate('/signup');
+  }
+  
   return (
     <div className="home">
       <div>
@@ -28,14 +34,23 @@ const Home = () => {
         <div className='icon-cont'>
           <img src={arrow} alt="arrow" className='rotate arrow-icon' />
         </div>
-        <div className='card'>
-          Notes
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='notes'></div>
+          <div className='card'>
+            Notes
+          </div>
         </div>
-        <div className='card'>
-          Flashcards
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='flashcards'></div>
+          <div className='card'>
+            Flashcards
+          </div>
         </div>
-        <div className='card'>
-          Summaries
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='summaries'></div>
+          <div className='card'>
+            Summaries
+          </div>
         </div>
 
         <div className='icon-cont'>
@@ -112,7 +127,7 @@ const Home = () => {
           </div>
 
           <div className='btn-container'>
-            <button className='signup-btn'>
+            <button className='signup-btn' onClick={handleSignUpPress}>
               Sign Up
             </button>
           </div>
