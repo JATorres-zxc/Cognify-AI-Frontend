@@ -90,10 +90,10 @@ const Header = () => {
                     
                     {isToolsOpen && (
                         <div className='dropdown-menu'>
-                            <div className='dropdown-item'>Notes</div>
-                            <div className='dropdown-item'>Quizzes</div>
-                            <div className='dropdown-item'>Flashcards</div>
-                            <div className='dropdown-item'>Summaries</div>
+                            <div className='dropdown-item' onClick={() => navigate('/notes')}>Notes</div>
+                            <div className='dropdown-item' onClick={() => navigate('/quiz')}>Quizzes</div>
+                            <div className='dropdown-item' onClick={() => navigate('/flashcards')}>Flashcards</div>
+                            <div className='dropdown-item' onClick={() => navigate('/summarizer')}>Summaries</div>
                         </div>
                     )}
                 </div>

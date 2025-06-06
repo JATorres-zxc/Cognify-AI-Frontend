@@ -80,19 +80,19 @@ const MyStudy = () => {
                   <div className='stat-number'>
                     {uploads.length}
                   </div>
-                  <p>Number of files uploaded</p>
+                  <p>Number of Files uploaded</p>
                 </div>
                 <div className='stat-card'>
                   <div className='stat-number'>
                     12
                   </div>
-                  <p>Flashcard decks created</p>
+                  <p>Flashcard Decks created</p>
                 </div>
                 <div className='stat-card'>
                   <div className='stat-number'>
                     8
                   </div>
-                  <p>Total Quizzes taken</p>
+                  <p>Total Quizzes <br /> taken</p>
                 </div>
             </div>
             <div className='progress'>

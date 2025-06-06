@@ -52,8 +52,9 @@
 .body .content .stat-card {
     background-color: var(--primary-yellow);
     width: 25%;
-    max-width: 250px;
-    height: auto;
+    min-width: 245px;
+    max-width: 300px;
+    height: 350px;
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: 10%;

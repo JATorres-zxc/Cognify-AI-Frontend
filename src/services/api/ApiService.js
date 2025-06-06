@@ -106,6 +106,29 @@ const ApiService = {
             throw new Error(error.response?.data?.message || 'Failed to delete note');
         }
     },
+
+    generateSummary: async (noteId, params) => {
+        try {
+            const response = await axios.post(
+                `${BASE_URL}/api/study/notes/${noteId}/generate_content/`,
+                {
+                    content_type: 'summary',
+                    complexity: params.complexity || 'medium',
+                    language: params.language || 'English',
+                    length: params.length || 'medium'
+                },
+                {
+                    headers: ApiService.getAuthHeaders(),
+                }
+            );
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to generate summary');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to generate summary');
+        }
+    },
 };
 
 export default ApiService;
