@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import UploadNote from './pages/Note/UploadNote/UploadNote';
 import './styles/global.css';
 
 // Import actual components
@@ -43,7 +42,6 @@ function App() {
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/summarizer" element={<Summarizer />} />
             <Route path="/noteoutput" element={<NoteOutput />} />
-            <Route path="/notesupload" element={<UploadNote />} />
           </Routes>
         </main>
       </div>
