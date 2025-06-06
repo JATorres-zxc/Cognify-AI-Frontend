@@ -100,13 +100,14 @@
 .card-tilt#notes {
     transform: rotate(-9.5deg);
 }
-
 .card-tilt#flashcards {
     transform: rotate(-175deg);
 }
-
 .card-tilt#summaries {
     transform: rotate(-170deg);
+}
+.card-tilt#quizquestion {
+    transform: rotate(-5.5deg);
 }
 
 .card {

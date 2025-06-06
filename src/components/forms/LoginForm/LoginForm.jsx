@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
-import ApiService from "../../../services/api/ApiService";
+import { AuthContext } from '../../../context/AuthContext';
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -8,6 +8,7 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const { login } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -17,16 +18,13 @@ const LoginForm = () => {
         setError('');
 
         try {
-            const data = await ApiService.login(username, password);
-            
-            // Store the tokens
-            localStorage.setItem('access_token', data.access_token);
-            localStorage.setItem('refresh_token', data.refresh_token);
-            
-            console.log('Login successful:', data);
-
-            // Redirect to dashboard or home page
-            navigate('/');
+            const result = await login(username, password);
+            if (result.success) {
+                // Redirect to dashboard or home page
+                navigate('/');
+            } else {
+                setError(result.error);
+            }
         } catch (error) {
             console.error('Login error:', error);
             setError(error.message || 'Login failed');
