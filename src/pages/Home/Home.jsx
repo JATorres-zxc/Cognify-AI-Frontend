@@ -42,19 +42,19 @@ const Home = () => {
         <div className='card-wrapper'>
           <div className='card-tilt' id='notes'></div>
           <div className='card'>
-            Notes
+            Flashcards
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='flashcards'></div>
           <div className='card'>
-            Flashcards
+            Summaries
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='summaries'></div>
           <div className='card'>
-            Summaries
+            Quiz Question
           </div>
         </div>
 

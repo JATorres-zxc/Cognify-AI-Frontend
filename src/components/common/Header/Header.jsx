@@ -1,15 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ApiService from '../../../services/api/ApiService';
+
 import sensaiLogo from '../../../assets/images/sensai logo.png';
 import toolsIcon from '../../../assets/icons/tools.svg';
 import myStudyIcon from '../../../assets/icons/mystudy.svg';
 import uploadIcon from '../../../assets/icons/upload.svg';
 import userIcon from '../../../assets/icons/user.svg';
 import './Header.css';
+import UploadModal from '../Modal/UploadModal';
 import SearchBar from '../SearchBar/SearchBar';
 
 const Header = () => {
     const [isToolsOpen, setIsToolsOpen] = useState(false);
+    const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
     const toolsRef = useRef(null);
     const navigate = useNavigate();
         
@@ -18,7 +22,7 @@ const Header = () => {
     }
 
     const handleUploadPress = () => {
-        navigate('/notes');
+        setIsUploadModalOpen(true);
     }
 
     const handleMyStudyPress = () => {
@@ -31,6 +35,18 @@ const Header = () => {
 
     const toggleToolsDropdown = () => {
         setIsToolsOpen(prev => !prev);
+    };
+    
+    const handleUploadFile = async (file) => {
+        const formData = new FormData();
+        formData.append('pdf', file);
+
+        try {
+            await ApiService.uploadPDF(file);
+            alert('Upload successful');
+        } catch (error) {
+            alert('Upload failed. Please try again.');
+        }
     };
 
     // Close dropdown if click outside
@@ -103,6 +119,12 @@ const Header = () => {
                 </button>
             </div>
         </div>
+
+        <UploadModal
+            isOpen={isUploadModalOpen}
+            onClose={() => setIsUploadModalOpen(false)}
+            onUpload={handleUploadFile}
+        />
     </div>
     );
 }

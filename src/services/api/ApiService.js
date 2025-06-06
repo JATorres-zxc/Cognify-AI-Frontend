@@ -36,6 +36,23 @@ const ApiService = {
 
         return await response.json();
     },
+
+    uploadPDF: async (file) => {
+        const formData = new FormData();
+        formData.append('pdf', file);
+
+        const response = await fetch(`${BASE_URL}/api/study/`, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData?.detail || 'Upload failed');
+        }
+
+        return await response.json();
+    },
 };
 
 export default ApiService;
