@@ -34,6 +34,27 @@
     color: var(--outline);
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+    width: 85%;
+}
+
+.title-container h3 {
+    font-family: var(--font-roboto-flex);
+    color: var(--outline);
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+.title-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--white);
+}
+
 .input-container {
     display: flex;
     justify-content: center;

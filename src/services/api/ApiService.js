@@ -1,57 +1,110 @@
-const BASE_URL = 'http://localhost:8000'; // Replace with your actual backend URL
+import axios from 'axios';
+
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const ApiService = {
     login: async (username, password) => {
-        const response = await fetch(`${BASE_URL}/auth/login/`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || 'Login failed');
+        try {
+            const response = await axios.post(`${BASE_URL}/auth/login/`, {
+                username,
+                password
+            });
+            // Store the token when login is successful
+            const { key } = response.data;
+            localStorage.setItem('token', key);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.response?.data?.non_field_errors?.[0] || 'Login failed');
         }
-
-        return await response.json();
     },
 
     register: async (username, email, password) => {
-        const response = await fetch(`${BASE_URL}/auth/registration/`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        try {
+            const response = await axios.post(`${BASE_URL}/auth/registration/`, {
                 username,
                 email,
                 password1: password,
                 password2: password,
-            }),
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            const errorMessage = errorData?.email?.[0] || errorData?.password1?.[0] || 'Registration failed';
+            });
+            // Store the token when registration is successful
+            const { key } = response.data;
+            localStorage.setItem('token', key);
+            return response.data;
+        } catch (error) {
+            const errorMessage = 
+                error.response?.data?.email?.[0] || 
+                error.response?.data?.password1?.[0] || 
+                'Registration failed';
             throw new Error(errorMessage);
         }
-
-        return await response.json();
     },
 
-    uploadPDF: async (file) => {
-        const formData = new FormData();
-        formData.append('pdf', file);
-
-        const response = await fetch(`${BASE_URL}/api/study/`, {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData?.detail || 'Upload failed');
+    logout: async () => {
+        try {
+            await axios.post(`${BASE_URL}/auth/logout/`, {}, {
+                headers: ApiService.getAuthHeaders()
+            });
+            localStorage.removeItem('token');
+        } catch (error) {
+            console.error('Logout error:', error);
+            // Still remove the token even if the server request fails
+            localStorage.removeItem('token');
         }
+    },
 
-        return await response.json();
+    getAuthHeaders: () => {
+        const token = localStorage.getItem('token');
+        return token ? {
+            'Authorization': `Token ${token}` // Changed from 'Bearer' to 'Token'
+        } : {};
+    },
+
+    uploadPDF: async (file, title) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('title', title);
+        
+        try {
+            const response = await axios.post(`${BASE_URL}/api/study/notes/`, formData, {
+                headers: {
+                    ...ApiService.getAuthHeaders(),
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to upload files');
+            }
+            throw new Error(error.response?.data?.message || 'Upload failed');
+        }
+    },
+
+    getUserNotes: async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/api/study/notes/`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to view your notes');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to fetch notes');
+        }
+    },
+
+    deleteNote: async (noteId) => {
+        try {
+            await axios.delete(`${BASE_URL}/api/study/notes/${noteId}/`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to delete notes');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to delete note');
+        }
     },
 };
 

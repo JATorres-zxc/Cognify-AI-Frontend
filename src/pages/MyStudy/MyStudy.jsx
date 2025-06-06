@@ -1,18 +1,66 @@
-import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header/Header';
 import Footer from '../../components/common/Footer/Footer';
+import ApiService from '../../services/api/ApiService';
 import noteIcon from '../../assets/icons/note.svg';
 import closeIcon from '../../assets/icons/close.svg';
 import downloadIcon from '../../assets/icons/donwload.svg';
 import './MyStudy.css';
 
 const MyStudy = () => {
-  const notes = new Array(8).fill(null);
-  const tests = new Array(4).fill(null);
-  const cards = new Array(7).fill(null);
-  const uploads = new Array(6).fill(null);
-  
+  const [uploads, setUploads] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const notes = new Array(2).fill(null);
+  const tests = new Array(2).fill(null);
+  const cards = new Array(2).fill(null);
+
+  useEffect(() => {
+    fetchUploads();
+  }, []);
+
+  const fetchUploads = async () => {
+    try {
+      const data = await ApiService.getUserNotes();
+      setUploads(data);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      console.error('Error fetching uploads:', err);
+      if (err.message.includes('Please login')) {
+        // Redirect to login page after a short delay
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (noteId) => {
+    try {
+      await ApiService.deleteNote(noteId);
+      // Refresh the uploads list
+      fetchUploads();
+    } catch (err) {
+      if (err.message.includes('Please login')) {
+        navigate('/login');
+      } else {
+        setError(err.message);
+      }
+    }
+  };
+
+  const handleDownload = (fileUrl) => {
+    if (fileUrl) {
+      window.open(fileUrl, '_blank');
+    }
+  };
+
   return (
     <div className='mystudy'>
       <div>
@@ -30,7 +78,7 @@ const MyStudy = () => {
             <div className='content'>
                 <div className='stat-card'>
                   <div className='stat-number'>
-                    55
+                    {uploads.length}
                   </div>
                   <p>Number of files uploaded</p>
                 </div>
@@ -156,25 +204,39 @@ const MyStudy = () => {
           </div>
 
           <div className='card-container'>
-            {uploads.map((_, idx) => (
-                <div className='material-card' key={idx}>
-                <div className='icon-container'>
+            {loading ? (
+              <p>Loading uploads...</p>
+            ) : error ? (
+              <p className="error-message">{error}</p>
+            ) : uploads.length === 0 ? (
+              <p>No uploads found</p>
+            ) : (
+              uploads.map((upload) => (
+                <div className='material-card' key={upload.id}>
+                  <div className='icon-container'>
                     <img src={noteIcon} alt='Note' className='noteIcon' />
-                </div>
-                <div className='card-data'>
-                    <h3 className='title'>Doc Title</h3>
-                    <p>Date Uploaded</p>
-                </div>
-                <div className='action-container'>
-                    <div className='action-icon-container'>
-                    <img src={closeIcon} alt='Delete' className='closeIcon' />
+                  </div>
+                  <div className='card-data'>
+                    <h3 className='title'>{upload.title || 'Untitled'}</h3>
+                    <p>{new Date(upload.created_at).toLocaleDateString()}</p>
+                  </div>
+                  <div className='action-container'>
+                    <div 
+                      className='action-icon-container'
+                      onClick={() => handleDelete(upload.id)}
+                    >
+                      <img src={closeIcon} alt='Delete' className='closeIcon' />
                     </div>
-                    <div className='action-icon-container'>
-                    <img src={downloadIcon} alt='Download' className='downloadIcon' />
+                    <div 
+                      className='action-icon-container'
+                      onClick={() => handleDownload(upload.file_url)}
+                    >
+                      <img src={downloadIcon} alt='Download' className='downloadIcon' />
                     </div>
+                  </div>
                 </div>
-                </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
