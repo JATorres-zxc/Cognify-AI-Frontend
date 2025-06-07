@@ -60,6 +60,7 @@ const SummaryGenerator = () => {
                 isOpen={isOpen(MODALS.TITLE)}
                 onClose={close}
                 variant="note"
+                redirectTo={"/summaryoutput"}
             />
         </div>
     );

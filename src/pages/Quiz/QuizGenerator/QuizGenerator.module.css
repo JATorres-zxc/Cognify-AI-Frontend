@@ -72,21 +72,57 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 50px; 
-    width: max-content; 
     width: 100%;
     height: auto;
 }
 
 .button-grid button {
-    padding: 5rem;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 100%;
+    height: 180px; /* or your preferred height */
+    padding: 0;
+    margin: 0;
     font-size: 2.5rem;
     font-family: var(--font-roboto-flex);
     border-radius: var(--button-radius);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+.locked-btn-wrapper {
+    width: 100%;
+    height: 180px; /* match button height */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inside-btn[disabled],
+.outside-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(0.7);
+    pointer-events: none;
+}
+
+.locked-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(34,34,34,0.85);
+    color: #fff;
+    padding: 0.3em 1em;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 2;
+    white-space: nowrap;
+}
 @media (max-width: 900px) {
     .button-grid {
         grid-template-columns: 1fr;
