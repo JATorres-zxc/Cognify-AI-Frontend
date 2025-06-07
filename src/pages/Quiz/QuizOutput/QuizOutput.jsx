@@ -11,7 +11,7 @@ const quizData = [
     {
         number: 1,
         question: "Question",
-        options: ["22", "3", "4", "5"],
+        options: ["22", "3", "4"],
         mode: "multiple",
     },
     {
