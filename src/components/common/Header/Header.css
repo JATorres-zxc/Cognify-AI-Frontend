@@ -43,6 +43,7 @@
 .nav-container {
     background-color: var(--outline);
     border-radius: var(--spacing-md);
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
