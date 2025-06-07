@@ -11,12 +11,12 @@ const quizData = [
     {
         number: 1,
         question: "Question",
-        options: ["22", "3", "4", "5"],
+        options: ["22", "3", "4"],
         mode: "multiple",
     },
     {
         number: 2,
-        question: "Is the sky blue?sssssssssssssasdddddddddddddddddddddd",
+        question: "Is the sky blue?sssssssssssssasddddddddddddddssssasddddddddddddddssssasddddddddddddddssssasddddddddddddddssssasddddddddddddddssssasddddddddddddddssssasdddddddddddddddddddddd",
         mode: "truefalse",
     },
     {
@@ -25,6 +25,7 @@ const quizData = [
         mode: "short",
     }
 ];
+
 
 const QuizOutput = () => {
     const navigate = useNavigate();
@@ -37,6 +38,16 @@ const QuizOutput = () => {
             const updated = [...prev];
             updated[idx] = value;
             return updated;
+        });
+    };
+
+    
+    const handleSubmit = () => {
+        navigate('/quizscore', {
+        state: {
+            quizData,
+            userAnswers: answers,
+        }
         });
     };
 
@@ -79,7 +90,7 @@ const QuizOutput = () => {
                 ))}
 
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
-                    <button className={styles["submit-btn"]}>
+                    <button className={styles["submit-btn"]} onClick = {handleSubmit}>
                         Submit
                     </button>
                 </div>

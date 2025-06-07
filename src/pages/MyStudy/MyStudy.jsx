@@ -13,6 +13,12 @@ const MyStudy = () => {
   const cards = new Array(7).fill(null);
   const uploads = new Array(6).fill(null);
   
+  const stats = [
+    { value: 55, label: "Number of files uploaded" },
+    { value: 12, label: "Flashcard decks created" },
+    { value: 8, label: "Total Quizzes taken" }
+  ];
+
   return (
     <div className='mystudy'>
       <div>
@@ -28,24 +34,14 @@ const MyStudy = () => {
 
           <div className='body'>
             <div className='content'>
-                <div className='stat-card'>
+              {stats.map((stat, idx) => (
+                <div className='stat-card' key={idx}>
                   <div className='stat-number'>
-                    55
+                    {stat.value}
                   </div>
-                  <p>Number of files uploaded</p>
+                  <p>{stat.label}</p>
                 </div>
-                <div className='stat-card'>
-                  <div className='stat-number'>
-                    12
-                  </div>
-                  <p>Flashcard decks created</p>
-                </div>
-                <div className='stat-card'>
-                  <div className='stat-number'>
-                    8
-                  </div>
-                  <p>Total Quizzes taken</p>
-                </div>
+              ))}
             </div>
             <div className='progress'>
                 <h1>Average Test Performance</h1>

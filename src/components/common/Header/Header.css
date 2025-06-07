@@ -43,6 +43,7 @@
 .nav-container {
     background-color: var(--outline);
     border-radius: var(--spacing-md);
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,6 +81,7 @@
     -webkit-text-stroke: 1.5px var(--outline);
     padding: 0.5rem 1rem;
     gap: 10px;
+    cursor: pointer;
 }
 
 .login-icon {

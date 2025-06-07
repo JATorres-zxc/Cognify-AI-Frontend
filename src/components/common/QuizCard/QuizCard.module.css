@@ -88,10 +88,6 @@
     word-break: break-word; 
 }
 
-.optionBtn:hover {
-    background: #ffab23;
-}
-
 .selected {
     background: var(--primary-yellow);
     color: #000000;
@@ -99,7 +95,7 @@
 
 
 .optionBtn:hover {
-    background: #ffab23;
+    background: var(--primary-yellow);
     color: black
 }
 

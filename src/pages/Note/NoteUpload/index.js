@@ -1,1 +1,1 @@
-export { default } from '../NoteUpload';
+export { default } from '../NoteUpload'

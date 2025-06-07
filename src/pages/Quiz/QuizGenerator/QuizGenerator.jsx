@@ -29,10 +29,27 @@ const QuizGenerator = () => {
                     <p>Choose your type of quiz</p>
 
                     <div className={styles["button-grid"]}>
-                        <button className={styles["outside-btn"]}  onClick ={openQuizType}>Multiple <br /> Choice</button>
-                        <button className={styles["inside-btn"]}>True / False</button>
-                        <button className={styles["inside-btn"]}>Short Answer</button>
-                        <button className={styles["outside-btn"]}>Fill in the <br /> Blank</button>
+                        <button className={styles["outside-btn"]} onClick={openQuizType}>
+                            Multiple <br /> Choice
+                        </button>
+                        <div className={styles["locked-btn-wrapper"]}>
+                            <button className={styles["inside-btn"]} disabled>
+                                True / False
+                            </button>
+                            <span className={styles["locked-overlay"]}>Coming Soon</span>
+                        </div>
+                        <div className={styles["locked-btn-wrapper"]}>
+                            <button className={styles["inside-btn"]} disabled>
+                                Short Answer
+                            </button>
+                            <span className={styles["locked-overlay"]}>Coming Soon</span>
+                        </div>
+                        <div className={styles["locked-btn-wrapper"]}>
+                            <button className={styles["outside-btn"]} disabled>
+                                Fill in the <br /> Blank
+                            </button>
+                            <span className={styles["locked-overlay"]}>Coming Soon</span>
+                        </div>
                     </div>
 
                 </div>

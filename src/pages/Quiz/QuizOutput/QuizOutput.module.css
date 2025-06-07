@@ -100,7 +100,7 @@
 
 
 @media (max-width: 1400px) {
-    .upload-btn {
+    .back-btn {
         width: 100px;
         min-width: 56px;
         max-width: 120px;
@@ -111,7 +111,7 @@
 }
 
 @media (max-width: 1200px) {
-    .upload-btn {
+    .back-btn {
         width: 80px;
         min-width: 48px;
         max-width: 100px;
@@ -122,7 +122,7 @@
 }
 
 @media (max-width: 900px) {
-    .upload-btn {
+    .back-btn {
         width: 60px;
         min-width: 40px;
         max-width: 80px;
@@ -132,7 +132,7 @@
     }
 }
 @media (max-width: 600px) {
-    .upload-btn {
+    .back-btn {
         width: 40px;
         min-width: 40px;
         max-width: 60px;
