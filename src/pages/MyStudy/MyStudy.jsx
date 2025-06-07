@@ -215,17 +215,7 @@ const MyStudy = () => {
                   <div className='stat-number'>
                     {quizzes.length}
                   </div>
-                  <p>Total Quizzes <br /> taken</p>
-                </div>
-            </div>
-            <div className='progress'>
-                <h1>Average Test Performance</h1>
-                <div className='performance-bar-container'>
-                  <div className='progress-bar-fill' style={{ width: `90%` }}>
-                    <span className='progress-text'>
-                      90%
-                    </span>
-                  </div>
+                  <p>Total Quizzes taken</p>
                 </div>
             </div>
           </div>

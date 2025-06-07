@@ -1,0 +1,14 @@
+.comingSoon .main {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.comingSoon-content h1 {
+    font-family: var(--font-jaro);
+    font-size: 3rem;
+}
+
+.comingSoon-content p {
+    font-family: var(--font-roboto-flex);
+    color: var(--outline);
+}
