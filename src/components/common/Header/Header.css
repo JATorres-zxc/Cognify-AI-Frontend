@@ -81,6 +81,7 @@
     -webkit-text-stroke: 1.5px var(--outline);
     padding: 0.5rem 1rem;
     gap: 10px;
+    cursor: pointer;
 }
 
 .login-icon {
