@@ -106,13 +106,38 @@ const FlashcardGenerator = () => {
     // Get current flashcard data
     const getCurrentFlashcard = () => {
         if (!generatedFlashcards || !generatedFlashcards.content) return null;
-        
-        const flashcards = Array.isArray(generatedFlashcards.content) 
-            ? generatedFlashcards.content 
-            : [];
-            
-        return flashcards[currentFlashcardIndex] || null;
+
+        let flashcards = generatedFlashcards.content;
+
+        // If the content is a stringified array, parse it
+        if (typeof flashcards === 'string') {
+            try {
+                flashcards = JSON.parse(flashcards);
+            } catch (e) {
+                console.error('Invalid flashcards content format:', flashcards);
+                return { question: 'Invalid flashcards format', answer: '' };
+            }
+        }
+
+        // Make sure it's an array
+        if (!Array.isArray(flashcards)) return null;
+
+        const card = flashcards[currentFlashcardIndex];
+
+        // If individual card is a string, parse it
+        if (typeof card === 'string') {
+            try {
+                return JSON.parse(card);
+            } catch (e) {
+                console.error('Invalid flashcard JSON:', card);
+                return { question: 'Invalid format', answer: '' };
+            }
+        }
+
+        return card || null;
     };
+
+
 
     const currentFlashcard = getCurrentFlashcard();
     const totalFlashcards = generatedFlashcards && generatedFlashcards.content 
