@@ -108,6 +108,50 @@ const ApiService = {
         }
     },
 
+    // Get all generated content (summaries, flashcards, quizzes)
+    getGeneratedContent: async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/api/study/generated-contents/`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to view generated content');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to fetch generated content');
+        }
+    },
+
+    // Get generated content by type
+    getGeneratedContentByType: async (contentType) => {
+        try {
+            const response = await axios.get(`${BASE_URL}/api/study/generated-contents/?content_type=${contentType}`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to view generated content');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to fetch generated content');
+        }
+    },
+
+    // Delete generated content
+    deleteGeneratedContent: async (contentId) => {
+        try {
+            await axios.delete(`${BASE_URL}/api/study/generated-contents/${contentId}/`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to delete content');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to delete content');
+        }
+    },
+
     deleteNote: async (noteId) => {
         try {
             await axios.delete(`${BASE_URL}/api/study/notes/${noteId}/`, {
@@ -254,18 +298,20 @@ const ApiService = {
     },
 
     checkQuota: async () => {
-    try {
-        const response = await axios.get(`${BASE_URL}/api/study/notes/quota_status/`, {
-            headers: ApiService.getAuthHeaders(),
-        });
-        return response.data;
-    } catch (error) {
-        if (error.response?.status === 401) {
-            throw new Error('Please login to check quota');
+        try {
+            const response = await axios.get(`${BASE_URL}/api/study/notes/quota_status/`, {
+                headers: ApiService.getAuthHeaders(),
+            });
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 401) {
+                throw new Error('Please login to check quota');
+            }
+            throw new Error(error.response?.data?.message || 'Failed to check quota');
         }
-        throw new Error(error.response?.data?.message || 'Failed to check quota');
-    }
-},
+    },
+
+    
 };
 
 // Usage example for complete PDF processing workflow
@@ -312,4 +358,27 @@ const processPDFToSummary = async (file, title, summaryParams) => {
     }
 };
 
-export { ApiService, processPDFToSummary };
+// NEW HELPER FUNCTIONS for better organization
+
+// Get only summaries
+const getSummaries = async () => {
+    return await ApiService.getGeneratedContentByType('summary');
+};
+
+// Get only flashcards
+const getFlashcards = async () => {
+    return await ApiService.getGeneratedContentByType('flashcards');
+};
+
+// Get only quizzes
+const getQuizzes = async () => {
+    return await ApiService.getGeneratedContentByType('quiz_questions');
+};
+
+export { 
+    ApiService, 
+    processPDFToSummary ,
+    getSummaries,
+    getFlashcards,
+    getQuizzes
+};

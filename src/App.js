@@ -11,6 +11,7 @@ import SignUpPage from './pages/Auth/SignUp/SignUp';
 import Notes from './pages/Note/NoteOutput/NoteOutput';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator';
+import SummaryOutput from './pages/Summarizer/SummaryOutput/SummaryOutput';
 import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator';
 import NoteOutput from './pages/Note/NoteOutput/NoteOutput';
 import MyStudy from './pages/MyStudy/MyStudy';
@@ -33,6 +34,7 @@ function App() {
               <Route path="/flashcards" element={<Flashcards />} />
               <Route path="/summarizer" element={<Summarizer />} />
               <Route path="/noteoutput" element={<NoteOutput />} />
+              <Route path="/summary-output" element={<SummaryOutput />} />
             </Routes>
           </main>
         </div>

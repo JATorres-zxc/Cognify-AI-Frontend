@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ApiService } from '../../../services/api/ApiService';
 import './Header.css';
 
 import sensaiLogo from '../../../assets/images/sensai logo.png';
@@ -16,24 +17,18 @@ const Header = () => {
     const toolsRef = useRef(null);
     const navigate = useNavigate();
         
-    const handleLogoPress = () => {
-        navigate('/');
-    }
+    const handleLogoPress = () => { navigate('/'); };
+    const handleMyStudyPress = () => { navigate('/mystudy'); };
+    const handleUploadPress = () => { setIsUploadModalOpen(true); };
+    const toggleToolsDropdown = () => { setIsToolsOpen(prev => !prev); };
 
-    const handleUploadPress = () => {
-        setIsUploadModalOpen(true);
-    }
-
-    const handleMyStudyPress = () => {
-        navigate('/mystudy');
-    }
-
-    const handleLogoutPress = () => {
-        navigate('/login');
-    }
-
-    const toggleToolsDropdown = () => {
-        setIsToolsOpen(prev => !prev);
+    const handleLogout = async () => {
+        try {
+            await ApiService.logout();
+            navigate('login');
+        } catch (error) {
+            console.error('Logout failed: ', error.message);
+        }
     };
     
     // Close dropdown if click outside
@@ -90,7 +85,7 @@ const Header = () => {
                     
                     {isToolsOpen && (
                         <div className='dropdown-menu'>
-                            <div className='dropdown-item' onClick={() => navigate('/notes')}>Notes</div>
+                            <div className='dropdown-item' onClick={() => navigate('/mystudy#myuploads')}>Notes</div>
                             <div className='dropdown-item' onClick={() => navigate('/quiz')}>Quizzes</div>
                             <div className='dropdown-item' onClick={() => navigate('/flashcards')}>Flashcards</div>
                             <div className='dropdown-item' onClick={() => navigate('/summarizer')}>Summaries</div>
@@ -100,7 +95,7 @@ const Header = () => {
             </div>
 
             <div className='login-btn-container'>
-                <button className='btn' onClick={handleLogoutPress}>
+                <button className='btn' onClick={handleLogout}>
                     Logout
                     <img src={userIcon} alt='Login' className='login-icon' />
                 </button>

@@ -43,12 +43,6 @@ const Home = () => {
           <img src={arrow} alt="arrow" className='rotate arrow-icon' />
         </div>
         <div className='card-wrapper'>
-          <div className='card-tilt' id='notes'></div>
-          <div className='card' onClick={isAuthenticated ? () => navigate('/notes') : () => navigate('/login')}>
-            Notes
-          </div>
-        </div>
-        <div className='card-wrapper'>
           <div className='card-tilt' id='flashcards'></div>
           <div className='card' onClick={isAuthenticated ? () => navigate('/flashcards') : () => navigate('/login')}>
             Flashcards
