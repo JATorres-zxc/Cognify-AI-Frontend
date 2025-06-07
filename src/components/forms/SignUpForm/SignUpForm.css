@@ -2,25 +2,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    padding-bottom: 1.5rem;
+    width: 100%;
+    padding-bottom: 1.2rem;
+    box-sizing: border-box;
 }
 
 .signup-header h1 {
     color: var(--text-white);
     -webkit-text-stroke: 2px var(--outline);
     font-family: var(--font-jaro);
-    font-size: 5rem;
+    font-size: 4rem;
     text-align: center;
     margin: 0;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1rem;
 }
 
 .form-group {
@@ -28,20 +32,22 @@
     flex-direction: column;
     margin-bottom: 1rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .label {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--outline);
 }
 
 .input-field {
     border: 4px solid var(--outline);
-    padding: 1rem;
+    padding: 0.7rem;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    border-radius: 0.7rem;
 }
 
 .btn-container {
@@ -49,22 +55,91 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .signup-btn {
     background-color: var(--btn);
     color: var(--text-white);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-family: var(--roboto-flex);
     font-weight: 500;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
     width: 100%;
     border-radius: var(--button-radius);
+    border: none;
+    transition: background 0.2s;
+}
+
+.signup-btn:hover {
+    background-color: var(--outline);
+    color: #fff;
 }
 
 .btn-container a {
     color: var(--red);
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    text-align: center;
+    display: block;
+    opacity: 0.85;
+    transition: color 0.2s, opacity 0.2s;
+}
+
+.btn-container a:hover {
+    color: var(--outline);
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .signup-header h1 {
+        font-size: 3rem;
+        padding-bottom: 0.8rem;
+    }
+    .label {
+        font-size: 0.95rem;
+    }
+    .input-field {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
+    .signup-btn {
+        font-size: 1rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+    .btn-container a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 0.5rem 0.2rem;
+    }
+    .signup-header h1 {
+        font-size: 3rem;    /* Make header bigger on mobile */
+        padding-bottom: 0.7rem;
+    }
+    .label {
+        font-size: 0.85rem;
+    }
+    .input-field {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+    .signup-btn {
+        font-size: 0.95rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .btn-container a {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+    }
 }
