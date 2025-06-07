@@ -88,10 +88,11 @@
 }
 
 @media (max-width: 900px) {
-    /*.button-grid {
+    .button-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
+    /*
     .main-header h1 {
         font-size: 3.2rem;
     }x
