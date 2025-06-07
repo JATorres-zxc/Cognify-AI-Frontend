@@ -72,6 +72,121 @@
     color: white;
     padding: 1rem 1rem;
 }
+
+
+.flashcard-container {
+    background-color: var(--text-white);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease-in-out;
+}
+
+.flashcard-counter {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--primary-green);
+}
+
+.flashcard {
+    border: 2px solid var(--primary-yellow);
+    border-radius: 15px;
+    padding: 1.5rem;
+    background-color: #fdfdfd;
+    margin-bottom: 2rem;
+}
+
+.flashcard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.question-section h4,
+.answer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-green);
+}
+
+.question-section p,
+.answer-section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    background-color: #f0f4f3;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.reveal-btn {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.reveal-btn:hover {
+    background-color: var(--primary-green-dark);
+}
+
+.navigation-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    background-color: var(--outline);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 48%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.nav-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.flashcard-meta {
+    text-align: center;
+    margin-top: 1rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+:root {
+    --primary-green: #226b5f;
+    --primary-green-dark: #1a564d;
+    --primary-yellow: #f5d547;
+    --outline: #3b3b3b;
+    --button-radius: 12px;
+    --text-white: #ffffff;
+    --text-color: #333333;
+    --font-roboto-flex: 'Roboto Flex', sans-serif;
+}
 @media (max-width: 900px) {
     .upload-btn {
         width: 80%;
@@ -87,3 +202,4 @@
         padding: 0.6rem 0.6rem;
     }
 }
+
