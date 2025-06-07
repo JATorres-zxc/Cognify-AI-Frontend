@@ -7,13 +7,6 @@ import styles from './FlashcardGenerator.module.css';
 import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
 import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 import FlashcardUploadModal from '../../../components/modals/FlashcardUploadModal/FlashcardUploadModal';
-import { useModalStack } from '../../../hooks/useModalStack';
-
-const MODALS = {
-    FILE: 'file',
-    NOTES: 'notes',
-    TITLE: 'title',
-};
 
 const FlashcardGenerator = () => {
     const [isFileModalOpen, setFileModalOpen] = useState(false);
@@ -129,7 +122,7 @@ const FlashcardGenerator = () => {
     return (
         <div className={styles["home"]}>
             <div>
-                <Header />
+            <Header />
             </div>
             <div className={styles["main"]}>
                 <div className={styles["main-header"]}>
@@ -139,8 +132,8 @@ const FlashcardGenerator = () => {
 
                 <div className="btn-container">
                     <button 
-                        className={styles["upload-btn"]}
-                        onClick={() => openFileModal()}
+                    className={styles["upload-btn"]}
+                    onClick={() => openFileModal()}
                     >
                         Upload
                     </button>
@@ -263,6 +256,7 @@ const FlashcardGenerator = () => {
                 onClose= {()=> setFlashcardUploadModalOpen(false)}
                 onFlashcardsGenerated={handleFlashcardsGenerated}
             />
+
         </div>
     );
 };

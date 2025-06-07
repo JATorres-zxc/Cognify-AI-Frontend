@@ -7,12 +7,6 @@ import styles from './SummaryGenerator.module.css';
 import FileUploadModal from '../../../components/modals/FileUploadModal/FileUploadModal';
 import NotesSelectionModal from '../../../components/modals/NotesSelectionModal/NotesSelectionModal';
 import SummaryUploadModal from '../../../components/modals/SummaryUploadModal/SummaryUploadModal';
-import { useModalStack } from '../../../hooks/useModalStack';
-const MODALS = {
-    FILE: 'file',
-    NOTES: 'notes',
-    TITLE: 'title',
-};
 
 const SummaryGenerator = () => {
     const [isFileModalOpen, setFileModalOpen] = useState(false);
@@ -79,7 +73,7 @@ const SummaryGenerator = () => {
     return (
         <div className={styles["home"]}>
             <div>
-                    <Header />
+                <Header />
             </div>
             <div className={styles['main']}>
                 <div className={styles['main-header']}>
@@ -88,9 +82,9 @@ const SummaryGenerator = () => {
                 <div className={styles['line']}></div>
 
                 <div className='btn-container'>
-                    <button
-                        className={styles['upload-btn']}
-                        onClick={() => open(MODALS.FILE)}
+                    <button 
+                    className={styles['upload-btn']}
+                    onClick={() => openFileModal()}
                     >
                         Upload
                     </button>
@@ -142,6 +136,7 @@ const SummaryGenerator = () => {
                         </div>
                     )}
                 </div>
+                
             </div>
 
             <div>
@@ -166,6 +161,7 @@ const SummaryGenerator = () => {
                 onClose= {()=> setSummaryUploadModalOpen(false)}
                 onSummaryGenerated={handleSummaryGenerated}
             />
+
         </div>
     );
 };

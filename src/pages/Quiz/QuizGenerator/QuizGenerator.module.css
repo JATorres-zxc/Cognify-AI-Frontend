@@ -14,11 +14,6 @@
 }
 
 .main-header {
-    width: 70%;
-    margin: 0 auto;
-    height: auto;
-    overflow-wrap: break-word;
-    word-break: break-word;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,18 +23,12 @@
 .main-header h1 {
     font-family: var(--font-futura-bold);
     font-size: 5.5rem;
-    text-align: center;
-    width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    height: auto;
-    margin: 0;
-    padding: 0 1rem;
 }
 
 .line {
     border: 5px solid var(--primary-yellow);
     border-radius: 10px;
+    margin-top: -30px;
     width: 75%;
 }
 
@@ -87,28 +76,3 @@
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
-    /*.button-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    .main-header h1 {
-        font-size: 3.2rem;
-    }x
-    //if you want to adjust the header size for smaller screens*/
-}
-
-@media (max-width: 600px) {
-    /*.main-header {
-        max-width: 98vw;
-        padding: 0 0.5rem;
-    }
-    .main-header h1 {
-        padding: 0 0.5rem;
-    }
-    .main-header h1 {
-        font-size: 2rem;
-        padding: 0 1rem;
-    }
-    //if you want to adjust the header size for smaller screens*/
-}
