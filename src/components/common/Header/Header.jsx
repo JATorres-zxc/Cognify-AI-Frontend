@@ -1,16 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ApiService } from '../../../services/api/ApiService';
+import './Header.css';
+
 import sensaiLogo from '../../../assets/images/sensai logo.png';
 import toolsIcon from '../../../assets/icons/tools.svg';
 //import settingsIcon from '../../../assets/icons/settings.svg'; // Add this icon to your assets
 import myStudyIcon from '../../../assets/icons/mystudy.svg';
 import uploadIcon from '../../../assets/icons/upload.svg';
 import userIcon from '../../../assets/icons/user.svg';
-import './Header.css';
+import UploadModal from '../../modals/UploadModal/UploadModal';
 import SearchBar from '../SearchBar/SearchBar';
 
 const Header = () => {
     const [isToolsOpen, setIsToolsOpen] = useState(false);
+    const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [isNestedToolsOpen, setIsNestedToolsOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,32 +22,18 @@ const Header = () => {
     const settingsRef = useRef(null);
     const navigate = useNavigate();
         
-    const handleLogoPress = () => {
-        navigate('/');
-    }
+    const handleLogoPress = () => { navigate('/'); };
+    const handleMyStudyPress = () => { navigate('/mystudy'); };
+    const handleUploadPress = () => { setIsUploadModalOpen(true); };
+    const toggleToolsDropdown = () => { setIsToolsOpen(prev => !prev); };
 
-    const handleUploadPress = () => {
-        navigate('/notes');
-    }
-
-    const handleMyStudyPress = () => {
-        navigate('/mystudy');
-    }
-
-    const handleLogoutPress = () => {
-        navigate('/login');
-    }
-
-    const handleQuizPress = () => {
-        navigate('/quiz');
-    }
-
-    const handleSummaryPress = () => {
-        navigate('/summarizer');
-    }
-
-    const toggleToolsDropdown = () => {
-        setIsToolsOpen(prev => !prev);
+    const handleLogout = async () => {
+        try {
+            await ApiService.logout();
+            navigate('login');
+        } catch (error) {
+            console.error('Logout failed: ', error.message);
+        }
     };
 
     const handleHamburgerClick = () => {
@@ -105,85 +95,42 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div
-                        className='nav-container'
-                        onClick={toggleToolsDropdown}
-                        ref={toolsRef}
-                    >
-                        <div className='nav-icon'>
-                            <img src={toolsIcon} alt='Tools' className='icon' />
-                        </div>
-                        <div className='nav-text'>
-                            Tools
-                        </div>
-                        
-                        {isToolsOpen && (
-                            <div className='dropdown-menu'>
-                                <div className='dropdown-item'>Notes</div>
-                                <div className='dropdown-item'>Quizzes</div>
-                                <div className='dropdown-item'>Flashcards</div>
-                                <div className='dropdown-item'>Summaries</div>
-                            </div>
-                        )}
+                <div
+                    className='nav-container'
+                    onClick={toggleToolsDropdown}
+                    ref={toolsRef}
+                >
+                    <div className='nav-icon'>
+                        <img src={toolsIcon} alt='Tools' className='icon' />
                     </div>
-                    <div className='login-btn-container'>
-                        <button className='btn' onClick={handleLogoutPress}>
-                            Logout
-                            <img src={userIcon} alt='Login' className='login-icon' />
-                        </button>
+                    <div className='nav-text'>
+                        Tools
                     </div>
+                    
+                    {isToolsOpen && (
+                        <div className='dropdown-menu'>
+                            <div className='dropdown-item' onClick={() => navigate('/mystudy#myuploads')}>Notes</div>
+                            <div className='dropdown-item' onClick={() => navigate('/quiz')}>Quizzes</div>
+                            <div className='dropdown-item' onClick={() => navigate('/flashcards')}>Flashcards</div>
+                            <div className='dropdown-item' onClick={() => navigate('/summarizer')}>Summaries</div>
+                        </div>
+                    )}
                 </div>
-
-                {/* Settings Icon with Dropdown */}
-                
             </div>
 
-            
-
-            {/* Mobile sidebar menu */}
-            <div className={`mobile-sidebar${isMobileMenuOpen ? ' open' : ''}`}>
-                <div className='sidebar-content'>
-                    <button className="close-sidebar" onClick={handleHamburgerClick}>&times;</button>
-                    <button className="sidebar-btn" onClick={() => { handleUploadPress(); setIsMobileMenuOpen(false); }}>
-                        Upload
-                    </button>
-                    <button className="sidebar-btn" onClick={() => { handleMyStudyPress(); setIsMobileMenuOpen(false); }}>
-                        My Study
-                    </button>
-                    <button className="sidebar-btn" onClick={() => { handleUploadPress(); setIsMobileMenuOpen(false); }}>
-                        Notes
-                    </button>
-                    <button className="sidebar-btn" onClick={() => { handleQuizPress(); setIsMobileMenuOpen(false); }}>
-                        Quizzes
-                    </button>
-                    <button className="sidebar-btn" onClick={() => { handleMyStudyPress(); setIsMobileMenuOpen(false); }}>
-                        Flashcards
-                    </button>
-                    <button className="sidebar-btn" onClick={() => { handleSummaryPress(); setIsMobileMenuOpen(false); }}>
-                        Summaries
-                    </button>
-                    <button className="sidebar-btn logout-btn" onClick={() => { handleLogoutPress(); setIsMobileMenuOpen(false); }}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="22"
-                            height="22"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            style={{ marginRight: "0.7rem", verticalAlign: "middle" }}
-                        >
-                            <path
-                                d="M16 17L21 12M21 12L16 7M21 12H9M13 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H13"
-                                stroke="var(--outline, #222)"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                        Logout
-                    </button>
-                </div>
+            <div className='login-btn-container'>
+                <button className='btn' onClick={handleLogout}>
+                    Logout
+                    <img src={userIcon} alt='Login' className='login-icon' />
+                </button>
             </div>
         </div>
+
+        <UploadModal
+            isOpen={isUploadModalOpen}
+            onClose={() => setIsUploadModalOpen(false)}
+        />
+    </div>
     );
 };
 

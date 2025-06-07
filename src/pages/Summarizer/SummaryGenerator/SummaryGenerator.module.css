@@ -14,11 +14,6 @@
 }
 
 .main-header {
-    width: 70%;
-    margin: 0 auto;
-    height: auto;
-    overflow-wrap: break-word;
-    word-break: break-word;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +50,69 @@
     font-size: 2.5rem;
     color: white;
     padding: 1rem 1rem;
+}
+
+.selected-note {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.selected-note h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.generate-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.generate-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.generate-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.summary-content {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.summary-content h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.summary-text {
+    line-height: 1.6;
+    color: #555;
+    white-space: pre-wrap;
 }
 @media (max-width: 900px) {
     .upload-btn {

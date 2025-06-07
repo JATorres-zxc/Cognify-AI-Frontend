@@ -1,0 +1,227 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-roboto-flex);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    z-index: 1001;
+}
+
+.closeBtn:hover {
+    color: #333;
+}
+
+.modalMain {
+    padding: 20px 30px;
+}
+
+.modalMain h2 {
+    margin: 0 20px 20px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+.section h3 {
+    margin: 0 0 15px 0;
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.titleContainer label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.titleInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: var(--white);
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.titleInput:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.titleInput:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fileInput {
+    display: none;
+}
+
+.customFileLabel {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.customFileLabel:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.fileName {
+    margin: 0;
+    padding: 8px;
+    background-color: #e7f3ff;
+    border-radius: 4px;
+    color: #0056b3;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.progressSection {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.progressText {
+    margin: 0 0 10px 0;
+    color: #495057;
+    font-weight: 500;
+}
+
+.progressBar {
+    width: 100%;
+    height: 8px;
+    background-color: #dee2e6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressBarFill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 4px;
+    animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+.uploadBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-yellow);
+    color: var(--outline);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.uploadBtn:hover:not(:disabled) {
+    background-color: rgba(255, 162, 0, 0.5);
+}
+
+.uploadBtn:disabled {
+    background-color: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+.message {
+    margin: 15px 0 0 0;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.message:first-of-type {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Success message (contains ✅) */
+.message:contains("✅") {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Error message (contains ❌) */
+.message:contains("❌") {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

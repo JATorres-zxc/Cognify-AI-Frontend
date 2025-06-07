@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import Header from '../../components/common/Header/Header';
 import LandingPageHeader from '../../components/common/Header/LandingPageHeader';
 import Footer from '../../components/common/Footer/Footer';
 import arrow from '../../assets/icons/arrow-right.svg';
@@ -12,6 +14,7 @@ import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext);
 
   const handleSignUpPress = () => {
     navigate('/signup');
@@ -20,7 +23,7 @@ const Home = () => {
   return (
     <div className="home">
       <div>
-        <LandingPageHeader />
+        {isAuthenticated ? <Header /> : <LandingPageHeader />}
       </div>
       <div className='main'>
         <div className='main-header'>
@@ -40,21 +43,21 @@ const Home = () => {
           <img src={arrow} alt="arrow" className='rotate arrow-icon' />
         </div>
         <div className='card-wrapper'>
-          <div className='card-tilt' id='notes'></div>
-          <div className='card'>
-            Notes
-          </div>
-        </div>
-        <div className='card-wrapper'>
           <div className='card-tilt' id='flashcards'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/flashcards') : () => navigate('/login')}>
             Flashcards
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='summaries'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/summarizer') : () => navigate('/login')}>
             Summaries
+          </div>
+        </div>
+        <div className='card-wrapper'>
+          <div className='card-tilt' id='quizquestion'></div>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/quiz') : () => navigate('/login')}>
+            Quiz Question
           </div>
         </div>
 
@@ -124,20 +127,24 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
       <div className='signup'>
-        <div className='signup-content'>
-          <div className='signup-text'>
-            <h1>Join Us!</h1>
-            <p>Start your journey with SensAI today!</p>
-          </div>
+        {isAuthenticated ? "" : 
+          <div className='signup-content'>
+            <div className='signup-text'>
+              <h1>Join Us!</h1>
+              <p>Start your journey with SensAI today!</p>
+            </div>
 
-          <div className='btn-container'>
-            <button className='signup-btn' onClick={handleSignUpPress}>
-              Sign Up
-            </button>
+            <div className='btn-container'>
+              <button className='signup-btn' onClick={handleSignUpPress}>
+                Sign Up
+              </button>
+            </div>
           </div>
-        </div>
+        }
       </div>
+      
       <div>
         <Footer />
       </div>

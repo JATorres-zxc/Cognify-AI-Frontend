@@ -59,3 +59,16 @@
     object-fit: contain;
     margin-right: 8px;
 }
+
+.loadingMessage, .errorMessage, .emptyMessage {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.errorMessage {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}

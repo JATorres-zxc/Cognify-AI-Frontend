@@ -1,5 +1,6 @@
 // AuthContext.js - Authentication context
 import React, { createContext, useState, useEffect } from 'react';
+import {ApiService} from '../services/api/ApiService';
 
 export const AuthContext = createContext();
 
@@ -10,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check for existing auth token on app load
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
     if (token) {
       // Validate token and set user
       validateToken(token);
@@ -22,8 +23,10 @@ export const AuthProvider = ({ children }) => {
   const validateToken = async (token) => {
     try {
       // API call to validate token
-      const response = await fetch('/api/auth/validate', {
-        headers: { Authorization: `Bearer ${token}` }
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/auth/validate/`, {
+        headers: { 
+          'Authorization': `Token ${token}`
+        }
       });
       
       if (response.ok) {
@@ -31,66 +34,49 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
         setIsAuthenticated(true);
       } else {
-        localStorage.removeItem('authToken');
+        localStorage.removeItem('token');
+        setIsAuthenticated(false);
       }
     } catch (error) {
       console.error('Token validation failed:', error);
-      localStorage.removeItem('authToken');
+      localStorage.removeItem('token');
+      setIsAuthenticated(false);
     } finally {
       setLoading(false);
     }
   };
 
-  const login = async (email, password) => {
+  const login = async (username, password) => {
     try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('authToken', data.token);
-        setUser(data.user);
-        setIsAuthenticated(true);
-        return { success: true };
-      } else {
-        const error = await response.json();
-        return { success: false, error: error.message };
-      }
+      const data = await ApiService.login(username, password);
+      setUser(data.user);
+      setIsAuthenticated(true);
+      return { success: true };
     } catch (error) {
-      return { success: false, error: 'Login failed. Please try again.' };
+      return { success: false, error: error.message };
     }
   };
 
   const signup = async (username, email, password) => {
     try {
-      const response = await fetch('/api/auth/registration', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('authToken', data.token);
-        setUser(data.user);
-        setIsAuthenticated(true);
-        return { success: true };
-      } else {
-        const error = await response.json();
-        return { success: false, error: error.message };
-      }
+      const data = await ApiService.register(username, email, password);
+      setUser(data.user);
+      setIsAuthenticated(true);
+      return { success: true };
     } catch (error) {
-      return { success: false, error: 'Signup failed. Please try again.' };
+      return { success: false, error: error.message };
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('authToken');
-    setUser(null);
-    setIsAuthenticated(false);
+  const logout = async () => {
+    try {
+      await ApiService.logout();
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      setUser(null);
+      setIsAuthenticated(false);
+    }
   };
 
   const value = {

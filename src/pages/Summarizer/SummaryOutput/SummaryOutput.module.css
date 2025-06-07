@@ -14,11 +14,6 @@
 }
 
 .main-header {
-    width: 70%;
-    margin: 0 auto;
-    height: auto;
-    overflow-wrap: break-word;
-    word-break: break-word;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +37,7 @@
     background-color: var(--text-white);
     border-radius: var(--button-radius);
     width: 75%;
-    height: 500px;
+    height: auto;
 }
 
 .upload-btn {
@@ -56,18 +51,65 @@
     color: white;
     padding: 1rem 1rem;
 }
-@media (max-width: 900px) {
-    .upload-btn {
-        width: 80%;
-        font-size: 2rem;
-        padding: 0.8rem 0.8rem;
-    }
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
-@media (max-width: 600px) {
-    .upload-btn {
-        width: 100%;
-        font-size: 1.2rem;
-        padding: 0.6rem 0.6rem;
-    }
+.note-container .summary-content {
+  padding: 2rem;
+  margin: 2rem 0;
+  line-height: 1.6;
+}
+
+.paragraph {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2rem;
+  font-family: var(--font-roboto-flex);
+  font-weight: 800;
+}
+
+.back-button {
+  background-color: var(--primary-yellow);
+  color: var(--outline);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 162, 0, 0.5);
+}
+
+.download-btn {
+  background-color: var(--outline);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.download-btn:hover {
+  background-color: black;
 }
