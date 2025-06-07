@@ -1,0 +1,227 @@
+.home {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--white);
+    height: auto;
+    padding-bottom: 3rem;
+}
+
+.main-header {
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-header h1 {
+    font-family: var(--font-futura-bold);
+    font-size: 4.5rem;
+}
+
+.line {
+    border: 5px solid var(--primary-yellow);
+    border-radius: 10px;
+    margin-top: -30px;
+    width: 75%;
+}
+
+.btn-container {
+    position: relative;
+    width: 75%;
+    min-height: 60px; /* adjust as needed */
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    width: 7.5%;
+    min-width: 48px;
+    max-width: 120px;
+    cursor: pointer;
+    background-color: var(--outline);
+    border: 3px solid black;
+    border-radius: var(--button-radius);
+    font-family: var(--font-roboto-flex);
+    font-size: 2.5rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin-left: 2rem;
+    z-index: 2;
+    transition: width 0.2s, font-size 0.2s, padding 0.2s;
+}
+
+
+.numbercount {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: fit-content;
+    z-index: 1;
+}
+
+.note-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    gap: 20px;
+    height: 500px;
+}
+
+.note-tilt {
+    position: absolute;
+    top: 2px;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(34, 85, 72, 0.15);
+    border-radius: var(--button-radius);
+    transform: rotate(-3.5deg);
+    z-index: 0;
+}
+
+.note-container {
+    position: relative;
+    background-color: var(--text-white);
+    border-radius: var(--button-radius);
+    width: 80%;
+    height: 100%;
+    z-index: 0;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flipped.note-container {
+    transform: rotateY(180deg);
+}
+
+.note-content,
+.note-content-back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+    backface-visibility: hidden;
+}
+
+.note-content-back {
+    transform: rotateY(180deg);
+}
+
+.nav-btn {
+    background: var(--outline, #222);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.nav-btn:hover {
+    background: var(--primary-yellow, #ffe066);
+    color: #222;
+}
+
+.swapped-container {
+    background-color: rgba(34, 85, 72, 0.15) !important;
+}
+.swapped-tilt {
+    background-color: var(--text-white) !important;
+}
+.noTransition {
+    transition: none !important;
+}
+
+.nav-btn[aria-label="Previous"] {
+    margin-right: 1rem;
+}
+
+.nav-btn[aria-label="Next"] {
+    margin-left: 1rem;
+}
+
+@media (max-width: 1400px) {
+    .back-btn {
+        width: 100px;
+        min-width: 56px;
+        max-width: 120px;
+        font-size: 2.3rem;
+        padding: 1rem 1rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .back-btn {
+        width: 80px;
+        min-width: 48px;
+        max-width: 100px;
+        font-size: 2.2rem;
+        padding: 0.9rem 0.9rem;
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .back-btn {
+        width: 60px;
+        min-width: 40px;
+        max-width: 80px;
+        font-size: 2rem;
+        padding: 0.7rem 0.7rem;
+        margin-left: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .back-btn {
+        width: 40px;
+        min-width: 40px;
+        max-width: 60px;
+        font-size: 1.5rem;
+        padding: 0.5rem 0.5rem;
+        margin-left: 0.5rem;
+    }
+    .nav-btn[aria-label="Previous"] {
+        margin-right: 0.2rem;
+    }
+    .nav-btn[aria-label="Next"] {
+        margin-left: 0.4rem;
+    }
+
+    .nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+

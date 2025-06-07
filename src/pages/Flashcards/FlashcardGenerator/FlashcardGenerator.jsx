@@ -62,6 +62,7 @@ const FlashcardGenerator = () => {
                 isOpen={isOpen(MODALS.TITLE)}
                 onClose={close}
                 variant="Flashcards"
+                redirectTo={"/flashcardoutput"}
             />
         </div>
     );

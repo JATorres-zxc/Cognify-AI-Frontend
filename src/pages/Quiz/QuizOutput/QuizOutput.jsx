@@ -55,7 +55,7 @@ const QuizOutput = () => {
 
                 <div className={styles["btn-container"]}>
                     <button 
-                        className={styles["upload-btn"]}
+                        className={styles["back-btn"]}
                         onClick={() => navigate(-1)}
                     >
                         &#8592;
