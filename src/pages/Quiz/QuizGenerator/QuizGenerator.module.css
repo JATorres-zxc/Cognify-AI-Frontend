@@ -68,6 +68,12 @@
     border: 3px solid var(--outline);
 }
 
+.inside-btn:hover,
+.outside-btn:hover {
+    background-color: var(--primary-yellow);
+    color: black;
+}
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
