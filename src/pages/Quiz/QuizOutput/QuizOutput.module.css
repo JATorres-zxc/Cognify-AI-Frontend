@@ -1,0 +1,173 @@
+.home {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--white);
+    height: auto;
+    padding-bottom: 3rem;
+}
+
+.main-header {
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-header h1 {
+    font-family: var(--font-futura-bold);
+    font-size: 5.5rem;
+    text-align: center;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    height: auto;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.line {
+    border: 5px solid var(--primary-yellow);
+    border-radius: 10px;
+    width: 75%;
+}
+.linetwo {
+    border: 5px solid var(--outline);
+    margin-top: 30px;
+    width: 75%;
+}
+
+.type-selection{
+    height: auto;
+    width: 75%;
+}
+
+.type-selection p {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-grid button {
+    padding: 5rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 2.5rem;
+    font-family: var(--font-roboto-flex);
+    border-radius: var(--button-radius);
+    cursor: pointer;
+}
+
+.btn-container {
+    position: relative;
+    width: 75%;
+    min-height: 60px; /* adjust as needed */
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.upload-btn {
+    width: 7.5%;
+    min-width: 48px;
+    max-width: 120px;
+    cursor: pointer;
+    background-color: var(--outline);
+    border: 3px solid black;
+    border-radius: var(--button-radius);
+    font-family: var(--font-roboto-flex);
+    font-size: 2.5rem;
+    color: white;
+    padding: 1rem 1rem;
+    margin-left: 2rem;
+    z-index: 2;
+    transition: width 0.2s, font-size 0.2s, padding 0.2s;
+}
+
+
+@media (max-width: 1400px) {
+    .upload-btn {
+        width: 100px;
+        min-width: 56px;
+        max-width: 120px;
+        font-size: 2.3rem;
+        padding: 1rem 1rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .upload-btn {
+        width: 80px;
+        min-width: 48px;
+        max-width: 100px;
+        font-size: 2.2rem;
+        padding: 0.9rem 0.9rem;
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .upload-btn {
+        width: 60px;
+        min-width: 40px;
+        max-width: 80px;
+        font-size: 2rem;
+        padding: 0.7rem 0.7rem;
+        margin-left: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .upload-btn {
+        width: 40px;
+        min-width: 40px;
+        max-width: 60px;
+        font-size: 1.5rem;
+        padding: 0.5rem 0.5rem;
+        margin-left: 0.5rem;
+    }
+}
+
+.good-luck {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: fit-content;
+    z-index: 1;
+}
+
+.submit-btn {
+    background: var(--primary-yellow, #ffe066);
+    color: #222;
+    font-size: 1.3rem;
+    font-family: var(--font-roboto-flex);
+    padding: 0.8rem 2.5rem;
+    border: none;
+    border-radius: var(--button-radius, 8px);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.submit-btn:hover {
+    background: #ffd23f;
+    color: #000;
+}
