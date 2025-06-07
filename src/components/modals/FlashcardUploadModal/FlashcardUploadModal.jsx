@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {ApiService} from '../../../services/api/ApiService';
-import styles from './SummaryUploadModal.module.css';
+import { ApiService } from '../../../services/api/ApiService';
+import styles from './FlashcardUploadModal.module.css';
 
-const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
+const FlashcardUploadModal = ({ isOpen, onClose, onFlashcardsGenerated }) => {
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState('');
     const [loading, setLoading] = useState(false);
@@ -11,6 +11,8 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
     const [selectedFileName, setSelectedFileName] = useState('');
     const [currentStep, setCurrentStep] = useState('');
     const [quotaInfo, setQuotaInfo] = useState(null);
+    const [complexity, setComplexity] = useState('medium');
+    const [language, setLanguage] = useState('English');
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
@@ -68,28 +70,27 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
                 throw new Error('Upload failed - no valid response received');
             }
             
-            // Step 2: Generate summary
-            setCurrentStep('Generating summary...');
-            console.log("Starting summary generation for note ID: ", uploadResponse.id);
+            // Step 2: Generate flashcards
+            setCurrentStep('Generating flashcards...');
+            console.log("Starting flashcard generation for note ID: ", uploadResponse.id);
 
-            // Add default parameters for summary generation
-            const summaryParams = {
-                complexity: 'medium',
-                language: 'English',
-                length: 'medium'
+            // Parameters for flashcard generation
+            const flashcardParams = {
+                complexity: complexity,
+                language: language
             };
 
-            const summaryResponse = await ApiService.generateSummary(uploadResponse.id, summaryParams);
-            console.log("Summary response: ", summaryResponse);
+            const flashcardResponse = await ApiService.generateFlashcards(uploadResponse.id, flashcardParams);
+            console.log("Flashcard response: ", flashcardResponse);
 
-            setMessage('✅ Upload and summary generation completed!');
+            setMessage('✅ Upload and flashcard generation completed!');
             setCurrentStep('Complete!');
             
             // Pass the results to parent component
-            if (onSummaryGenerated) {
-                onSummaryGenerated({
+            if (onFlashcardsGenerated) {
+                onFlashcardsGenerated({
                     uploadedNote: uploadResponse,
-                    generatedSummary: summaryResponse,
+                    generatedFlashcards: flashcardResponse,
                     quotaRemaining: quotaInfo ? quotaInfo.remaining - 1 : null
                 });
             }
@@ -135,6 +136,8 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
         setMessage('');
         setCurrentStep('');
         setQuotaInfo(null);
+        setComplexity('medium');
+        setLanguage('English');
     };
 
     const handleClose = () => {
@@ -156,7 +159,7 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
                 </button>
 
                 <div className={styles.modalMain}>
-                    <h2>Upload PDF & Generate Summary</h2>
+                    <h2>Upload PDF & Generate Flashcards</h2>
 
                     {/* Quota Info */}
                     {quotaInfo && (
@@ -217,7 +220,7 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
                         onClick={handleUploadAndGenerate} 
                         disabled={loading || !title.trim() || !file}
                     >
-                        {loading ? 'Processing...' : 'Upload & Generate Summary'}
+                        {loading ? 'Processing...' : 'Upload & Generate Flashcards'}
                     </button>
 
                     {/* Status Message */}
@@ -228,4 +231,4 @@ const SummaryUploadModal = ({ isOpen, onClose, onSummaryGenerated }) => {
     );
 };
 
-export default SummaryUploadModal;
+export default FlashcardUploadModal;

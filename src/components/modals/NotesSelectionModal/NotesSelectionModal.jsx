@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './NotesSelectionModal.module.css';
 import noteIcon from '../../../assets/icons/note.svg';
-import ApiService from '../../../services/api/ApiService';
+import { ApiService } from '../../../services/api/ApiService';
 
 const NotesSelectionModal = ({ isOpen, onClose, onNoteSelect }) => {
     const [notes, setNotes] = useState([]);

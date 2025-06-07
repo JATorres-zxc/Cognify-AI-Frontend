@@ -47,7 +47,7 @@
     height: 100%;
     background-color: rgba(34, 85, 72, 0.15);
     border-radius: var(--button-radius);
-    transform: rotate(-3.5deg);
+    transform: rotate(-3deg);
     z-index: 0;
 }
 
@@ -57,7 +57,7 @@
     border-radius: var(--button-radius);
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 2;
 }
 
 

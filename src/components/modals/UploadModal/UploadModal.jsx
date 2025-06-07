@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ApiService from '../../../services/api/ApiService';
+import {ApiService} from '../../../services/api/ApiService';
 import './UploadModal.css';
 
 const UploadModal = ({ isOpen, onClose, onUploadComplete, autoGenerateSummary = false }) => {
@@ -43,6 +43,19 @@ const UploadModal = ({ isOpen, onClose, onUploadComplete, autoGenerateSummary = 
         setMessage('');
 
         try {
+            // Check quota if auto-generating summary
+            if (autoGenerateSummary) {
+                setUploadProgress('Checking quota...');
+                try {
+                    const quota = await ApiService.checkQuota();
+                    if (quota.remaining <= 0) {
+                        throw new Error('Daily generation limit reached. Please try again tomorrow.');
+                    }
+                } catch (quotaError) {
+                    console.warn('Could not check quota:', quotaError.message);
+                }
+            }
+
             // Step 1: Upload the PDF
             setUploadProgress('Uploading PDF...');
             const uploadResponse = await ApiService.uploadPDF(file, title);
@@ -74,29 +87,33 @@ const UploadModal = ({ isOpen, onClose, onUploadComplete, autoGenerateSummary = 
             }
 
             // Reset form
-            setFile(null);
-            setTitle('');
-            setSelectedFileName('');
-            setUploadProgress('');
+            resetForm();
             
             // Close the modal after a short delay
             setTimeout(() => {
                 onClose();
-                // Only reload if not using callback (for backward compatibility)
-                if (!onUploadComplete) {
-                    window.location.reload();
-                }
             }, 1500);
         } catch (error) {
-            setMessage(`❌ ${error.message}`);
-            setUploadProgress('');
-
-            if (error.message.includes('Please login')) {
+            console.error('Upload error:', error);
+            
+            // Enhanced error handling
+            if (error.message.includes('virus') || error.message.includes('infected')) {
+                setMessage('🦠 File appears to be infected and cannot be uploaded');
+            } else if (error.message.includes('limit reached')) {
+                setMessage('⏰ Daily generation limit reached. Try again tomorrow.');
+            } else if (error.message.includes('PDF') || error.message.includes('extract')) {
+                setMessage('📄 Could not process PDF. Please ensure it\'s a valid PDF file.');
+            } else if (error.message.includes('login')) {
+                setMessage('🔐 Please log in to continue');
                 setTimeout(() => {
                     onClose();
                     navigate('/login');
                 }, 2000);
+            } else {
+                setMessage(`❌ ${error.message}`);
             }
+            
+            setUploadProgress('');
         } finally {
             setLoading(false);
         }

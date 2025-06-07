@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ApiService from '../../../services/api/ApiService';
+import {ApiService} from '../../../services/api/ApiService';
 
 import Header from '../../../components/common/Header/Header';
 import Footer from '../../../components/common/Footer/Footer';
@@ -121,7 +121,17 @@ const SummaryGenerator = () => {
                         <div className={styles['summary-content']}>
                             <h3>Generated Summary</h3>
                             <div className={styles['summary-text']}>
-                                {generatedSummary.content || generatedSummary.summary}
+                                {generatedSummary.content?.summary || 
+                                generatedSummary.summary || 
+                                generatedSummary.content || 
+                                'Summary not available'}
+                            </div>
+                            
+                            {/* Show additional metadata */}
+                            <div className={styles['summary-meta']}>
+                                <small>
+                                    Generated on: {new Date(generatedSummary.created_at).toLocaleString()}
+                                </small>
                             </div>
                         </div>
                     )}

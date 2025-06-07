@@ -133,9 +133,9 @@
 .fileName {
     margin: 0;
     padding: 8px;
-    background-color: #e7f3ff;
+    background-color: rgba(255, 162, 0, 0.5);
     border-radius: 4px;
-    color: #0056b3;
+    color: var(--outline);
     font-size: 14px;
     word-break: break-all;
 }
@@ -183,7 +183,7 @@
     border: none;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

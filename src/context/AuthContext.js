@@ -1,6 +1,6 @@
 // AuthContext.js - Authentication context
 import React, { createContext, useState, useEffect } from 'react';
-import ApiService from '../services/api/ApiService';
+import {ApiService} from '../services/api/ApiService';
 
 export const AuthContext = createContext();
 

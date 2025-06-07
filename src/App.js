@@ -21,18 +21,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="App">
-          <nav className="nav">
-            <a href="/">Home</a>
-            <a href="/mystudy">My Study</a>
-            <a href="/notes">Notes</a>
-            <a href="/quiz">Quiz</a>
-            <a href="/flashcards">Flashcards</a>
-            <a href="/summarizer">Summarizer</a>
-            <a href="/login">Login</a>
-            <a href="/signup">Sign Up</a>
-          </nav>
-          
+        <div className="App">          
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />

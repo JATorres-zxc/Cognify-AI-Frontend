@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header/Header';
 import Footer from '../../components/common/Footer/Footer';
-import ApiService from '../../services/api/ApiService';
+import {ApiService} from '../../services/api/ApiService';
 import noteIcon from '../../assets/icons/note.svg';
 import closeIcon from '../../assets/icons/close.svg';
 import downloadIcon from '../../assets/icons/donwload.svg';

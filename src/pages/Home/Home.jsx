@@ -44,25 +44,25 @@ const Home = () => {
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='notes'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/notes') : () => navigate('/login')}>
             Notes
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='flashcards'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/flashcards') : () => navigate('/login')}>
             Flashcards
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='summaries'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/summarizer') : () => navigate('/login')}>
             Summaries
           </div>
         </div>
         <div className='card-wrapper'>
           <div className='card-tilt' id='quizquestion'></div>
-          <div className='card'>
+          <div className='card' onClick={isAuthenticated ? () => navigate('/quiz') : () => navigate('/login')}>
             Quiz Question
           </div>
         </div>
