@@ -15,11 +15,11 @@ const QuizGenerator = () => {
     };
 
     return (
-        <div className={styles.home}>
+        <div className={styles.home} style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <div>
-            <Header />
+                <Header />
             </div>
-            <div className={styles.main}>
+            <div className={styles.main} style={{ flex: 1 }}>
                 <div className={styles["main-header"]}>
                     <h1>Quiz Title</h1>
                 </div>
@@ -53,13 +53,8 @@ const QuizGenerator = () => {
                     </div>
 
                 </div>
-                
-
             </div>
-
-            <div>
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 };
