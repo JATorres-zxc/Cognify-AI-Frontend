@@ -18,7 +18,7 @@ const Header = () => {
     }
 
     const handleLogInPress = () => {
-      navigate('/login');
+        navigate('/login');
     }
 
     const handleUploadPress = () => {

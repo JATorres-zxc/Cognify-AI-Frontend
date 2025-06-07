@@ -11,11 +11,7 @@
 
 .content {
     width: 100%;
-    max-width: 1400px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
     gap: 24px;
     margin: 0 auto;
 }
@@ -25,8 +21,18 @@
     width: auto;
     display: block;
     margin: 0;
+    cursor: pointer;
+}
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between hamburger and logo */
 }
 
+.hamburger {
+    margin-left: 0;      /* Remove left margin */
+    margin-right: 0.5rem; /* Optional: space between hamburger and logo */
+}
 .navigation {
     display: flex;
     justify-content: center;
@@ -131,9 +137,7 @@
     border-radius: 2px;
     transition: 0.3s;
 }
-.sidebar-btn.logout-btn:hover svg path {
-    stroke: red;
-}
+    
 /* Show hamburger and hide nav on small screens */
 @media (max-width: 800px) {
     .hamburger {

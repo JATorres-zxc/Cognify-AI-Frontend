@@ -68,19 +68,19 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='content'>
-                {/* Hamburger icon for mobile */}
-                <div className="hamburger" onClick={handleHamburgerClick}>
-                    <span />
-                    <span />
-                    <span />
+                <div className="logo-row">
+                    <div className="hamburger" onClick={handleHamburgerClick}>
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+                    <img
+                        src={sensaiLogo}
+                        alt='SensAI Logo'
+                        className='logo'
+                        onClick= {handleLogoPress}
+                    />
                 </div>
-                
-                <img
-                    src={sensaiLogo}
-                    alt='SensAI Logo'
-                    className='logo'
-                    onClick= {handleLogoPress}
-                />
 
                 <div className='search-container'>
                     <SearchBar />
