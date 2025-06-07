@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import Header from '../../components/common/Header/Header';
@@ -13,6 +13,16 @@ import senseiAI from '../../assets/images/ai sensei.png';
 import './Home.css';
 
 const Home = () => {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -300, behavior: 'smooth'});
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 300, behavior: 'smooth'});
+  };
+  
   const navigate = useNavigate();
   const { isAuthenticated } = useContext(AuthContext);
 
@@ -39,35 +49,39 @@ const Home = () => {
 
       </div>
       <div className='features'>
-        <div className='icon-cont'>
-          <img src={arrow} alt="arrow" className='rotate arrow-icon' />
+        <div className='icon-cont' onClick={scrollLeft}>
+          <img src={arrow} alt="left arrow" className='rotate arrow-icon' />
         </div>
-        <div className='card-wrapper'>
-          <div className='card-tilt' id='notes'></div>
-          <div className='card' onClick={isAuthenticated ? () => navigate('/notes') : () => navigate('/login')}>
-            Notes
+        <div className='card-scroll-container' ref={scrollRef}></div>
+          <div className='card-track'> 
+            <div className='card-wrapper'>
+              <div className='card-tilt' id='notes'></div>
+              <div className='card' onClick={isAuthenticated ? () => navigate('/notes') : () => navigate('/login')}>
+                Notes
+              </div>
+            </div>
+            <div className='card-wrapper'>
+              <div className='card-tilt' id='flashcards'></div>
+              <div className='card' onClick={isAuthenticated ? () => navigate('/flashcards') : () => navigate('/login')}>
+                Flashcards
+              </div>
+            </div>
+            <div className='card-wrapper'>
+              <div className='card-tilt' id='summaries'></div>
+              <div className='card' onClick={isAuthenticated ? () => navigate('/summarizer') : () => navigate('/login')}>
+                Summaries
+              </div>
+            </div>
+            <div className='card-wrapper'>
+              <div className='card-tilt' id='quizquestion'></div>
+              <div className='card' onClick={isAuthenticated ? () => navigate('/quiz') : () => navigate('/login')}>
+                Quiz Question
+              </div>
+            </div>
           </div>
-        </div>
-        <div className='card-wrapper'>
-          <div className='card-tilt' id='flashcards'></div>
-          <div className='card' onClick={isAuthenticated ? () => navigate('/flashcards') : () => navigate('/login')}>
-            Flashcards
-          </div>
-        </div>
-        <div className='card-wrapper'>
-          <div className='card-tilt' id='summaries'></div>
-          <div className='card' onClick={isAuthenticated ? () => navigate('/summarizer') : () => navigate('/login')}>
-            Summaries
-          </div>
-        </div>
-        <div className='card-wrapper'>
-          <div className='card-tilt' id='quizquestion'></div>
-          <div className='card' onClick={isAuthenticated ? () => navigate('/quiz') : () => navigate('/login')}>
-            Quiz Question
-          </div>
-        </div>
+          
 
-        <div className='icon-cont'>
+        <div className='icon-cont' onClick={scrollRight}>
           <img src={arrow} alt="arrow" className='arrow-icon' />
         </div>
       </div>
