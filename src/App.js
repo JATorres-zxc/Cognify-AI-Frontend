@@ -8,6 +8,7 @@ import './styles/global.css';
 import Home from './pages/Home/Home';
 import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
+import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Notes from './pages/Note/NoteOutput/NoteOutput';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator';
@@ -32,6 +33,7 @@ function App() {
               <Route path="/mystudy" element={<MyStudy />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/coming-soon" element={<ComingSoon />} />
               <Route path="/notes" element={<Notes />} />
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/flashcards" element={<Flashcards />} />
