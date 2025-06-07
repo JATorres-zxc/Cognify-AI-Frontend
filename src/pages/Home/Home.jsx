@@ -49,8 +49,10 @@ const Home = () => {
 
       </div>
       <div className='features'>
+
         <div className='icon-cont' onClick={scrollLeft}>
           <img src={arrow} alt="left arrow" className='rotate arrow-icon' />
+
         </div>
         <div className='card-scroll-container' ref={scrollRef}></div>
           <div className='card-track'> 

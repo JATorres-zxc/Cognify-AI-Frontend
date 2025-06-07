@@ -1,4 +1,4 @@
-.mystudy #mystudyicon {
+#mystudyicon {
     background-color: gray;
 }
 
@@ -22,7 +22,6 @@
 
 .stats {
     width: 85%;
-    max-width: 70vw;
     height: 65vh;
 }
 
@@ -52,12 +51,10 @@
 .body .content .stat-card {
     background-color: var(--primary-yellow);
     width: 25%;
-    min-width: 245px;
-    max-width: 300px;
-    height: 350px;
+    height: auto;
+    min-height: 380px;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,52 +73,7 @@
     color: var(--outline);
     text-align: center;
     padding: 0 2.5rem;
-}
-
-.stats .progress {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    padding: 0 8rem;
-}
-
-.stats .progress h1 {
-    font-family: var(--font-futura-cn);
-    text-align: center;
-}
-
-.performance-bar-container {
-  width: 85%;
-  max-width: 1000px;
-  height: 60px;
-  background-color: #3a3a3a; /* dark background */
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background-color: #ffd700; /* yellow */
-  border-radius: 10px 20px 20px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 16px;
-  box-sizing: border-box;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  transition: width 0.3s ease;
-}
-
-.progress-text {
-  font-family: var(--font-futura-bold);
-  white-space: nowrap;
+    max-width: 200px;
 }
 
 .mystudy .materials {
@@ -143,7 +95,7 @@
 }
 
 .section-header {
-    width: 80%;
+    width: 100%;
     font-family: var(--font-futura-bold);
     font-size: 3.5rem;
 }
@@ -174,6 +126,7 @@
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     width: 350px;
+    min-width: 270px;
     gap: 10px;
 }
 
@@ -223,12 +176,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.action-icon-container:hover {
-  transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .closeIcon {
@@ -245,3 +192,40 @@
   height: auto;
 }
 
+@media (max-width: 800px) {
+  .mystudy .main {
+    height: 80vh;
+    padding-top: 0;
+  }
+
+  .stats .body .content {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+  } 
+
+  .stats-header {
+    margin-top: -30px;
+  }
+
+  .body .content .stat-card {
+    width: 100%;
+    min-height: 0px;
+    margin: 0;
+    flex-direction: row;
+  }
+
+  .stat-card .stat-number {
+    text-align: center;
+    width: 50%;
+    max-width: 120px;
+    font-size: 7rem;
+  }
+
+  .stat-card p {
+    width: 50%;
+    max-width: 250px;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}

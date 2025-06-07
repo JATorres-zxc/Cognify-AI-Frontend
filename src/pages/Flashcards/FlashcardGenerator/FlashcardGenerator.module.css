@@ -73,6 +73,7 @@
     padding: 1rem 1rem;
 }
 
+
 .flashcard-container {
     background-color: var(--text-white);
     border-radius: 20px;
@@ -186,3 +187,19 @@
     --text-color: #333333;
     --font-roboto-flex: 'Roboto Flex', sans-serif;
 }
+@media (max-width: 900px) {
+    .upload-btn {
+        width: 80%;
+        font-size: 2rem;
+        padding: 0.8rem 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .upload-btn {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 0.6rem 0.6rem;
+    }
+}
+

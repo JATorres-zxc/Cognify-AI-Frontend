@@ -8,13 +8,18 @@ import './styles/global.css';
 import Home from './pages/Home/Home';
 import LoginPage from './pages/Auth/Login/Login';
 import SignUpPage from './pages/Auth/SignUp/SignUp';
+import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Notes from './pages/Note/NoteOutput/NoteOutput';
 import Quiz from './pages/Quiz/QuizGenerator/QuizGenerator';
 import Summarizer from './pages/Summarizer/SummaryGenerator/SummaryGenerator';
+import SummaryOutput from './pages/Summarizer/SummaryOutput/SummaryOutput';
 import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator';
 import NoteOutput from './pages/Note/NoteOutput/NoteOutput';
 import MyStudy from './pages/MyStudy/MyStudy';
-
+import QuizOutput from './pages/Quiz/QuizOutput/QuizOutput';
+import FlashcardOutput from './pages/Flashcards/FlashcardOutput/FlashcardOutput';
+import SummarizerOutput from './pages/Summarizer/SummaryOutput/SummaryOutput';
+import QuizScore from './pages/Quiz/QuizScore/QuizScore';
 // Simplified placeholder components
 
 function App() {
@@ -28,11 +33,13 @@ function App() {
               <Route path="/mystudy" element={<MyStudy />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/coming-soon" element={<ComingSoon />} />
               <Route path="/notes" element={<Notes />} />
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/flashcards" element={<Flashcards />} />
               <Route path="/summarizer" element={<Summarizer />} />
               <Route path="/noteoutput" element={<NoteOutput />} />
+              <Route path="/summary-output" element={<SummaryOutput />} />
             </Routes>
           </main>
         </div>

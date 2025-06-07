@@ -126,13 +126,6 @@ const SummaryGenerator = () => {
                                 generatedSummary.content || 
                                 'Summary not available'}
                             </div>
-                            
-                            {/* Show additional metadata */}
-                            <div className={styles['summary-meta']}>
-                                <small>
-                                    Generated on: {new Date(generatedSummary.created_at).toLocaleString()}
-                                </small>
-                            </div>
                         </div>
                     )}
                 </div>
