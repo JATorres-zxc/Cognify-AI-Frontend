@@ -168,9 +168,13 @@
     .content {
         gap: 0;
     }
+    .logo {
+        height: 7vh;
+    }
+    .btn {
+        display: none;
+    }
 }
-
-
 
 @media (max-width: 900px) {
     .content {
@@ -184,7 +188,7 @@
     top: 0;
     left: -260px;
     width: 260px;
-    height: 100vh;
+    height: 100%;
     background: var(--primary-yellow, #ffe066);
     box-shadow: 2px 0 16px rgba(0,0,0,0.08);
     z-index: 2000;
