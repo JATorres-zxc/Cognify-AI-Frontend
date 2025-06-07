@@ -32,7 +32,7 @@ const SummaryOutput = () => {
                         className={styles['upload-btn']}
                         onClick={() => open(MODALS.FILE)}
                     >
-                        Upload Agai n
+                        Upload Again
                     </button>
                 </div>
 

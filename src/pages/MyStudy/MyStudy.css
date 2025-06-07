@@ -159,7 +159,7 @@
 
 .materials .section {
     width: 85%;
-    max-width: 70vw;
+    max-width: 1200px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,16 +178,16 @@
     margin-top: 1.5rem;
 }
 
-/* Grid of cards */
 .card-container {
     margin: 2rem auto;
     width: 85%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     justify-content: center;
     padding: 20px 0;
 }
+
 
 .material-card {
     display: flex;
@@ -197,8 +197,9 @@
     padding: 16px;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    width: 350px;
+    width: 100%;      /* <-- Change this line */
     gap: 10px;
+    box-sizing: border-box; /* Ensure padding doesn't overflow grid cell */
 }
 
 /* Left icon */
@@ -311,6 +312,14 @@
   .progress-bar-fill {
     font-size: 1rem;
     padding-right: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-container {
+    grid-template-columns: 1fr; 
+    width: 98%;
+    gap: 20px;
   }
 }
 
