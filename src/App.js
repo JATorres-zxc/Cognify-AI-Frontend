@@ -15,7 +15,10 @@ import SummaryOutput from './pages/Summarizer/SummaryOutput/SummaryOutput';
 import Flashcards from './pages/Flashcards/FlashcardGenerator/FlashcardGenerator';
 import NoteOutput from './pages/Note/NoteOutput/NoteOutput';
 import MyStudy from './pages/MyStudy/MyStudy';
-
+import QuizOutput from './pages/Quiz/QuizOutput/QuizOutput';
+import FlashcardOutput from './pages/Flashcards/FlashcardOutput/FlashcardOutput';
+import SummarizerOutput from './pages/Summarizer/SummaryOutput/SummaryOutput';
+import QuizScore from './pages/Quiz/QuizScore/QuizScore';
 // Simplified placeholder components
 
 function App() {

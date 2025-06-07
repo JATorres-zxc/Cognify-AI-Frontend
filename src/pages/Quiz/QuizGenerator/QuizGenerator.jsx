@@ -264,15 +264,15 @@ const QuizGenerator = () => {
     };
 
     return (
-      <div className={styles.home}>
-        <div>
-          <Header />
-        </div>
-        <div className={styles.main}>
-          <div className={styles["main-header"]}>
-            <h1>Quiz Generator</h1>
-          </div>
-          <div className={styles.line}></div>
+        <div className={styles.home} style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+            <div>
+                <Header />
+            </div>
+            <div className={styles.main} style={{ flex: 1 }}>
+                <div className={styles["main-header"]}>
+                    <h1>Quiz Title</h1>
+                </div>
+                <div className={styles.line}></div>
                 
           {!generatedQuiz && (
                     <>

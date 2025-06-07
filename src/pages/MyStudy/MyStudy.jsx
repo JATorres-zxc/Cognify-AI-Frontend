@@ -199,7 +199,8 @@ const MyStudy = () => {
 
           <div className='body'>
             <div className='content'>
-                <div className='stat-card'>
+              {stats.map((stat, idx) => (
+                <div className='stat-card' key={idx}>
                   <div className='stat-number'>
                     {uploads.length}
                   </div>

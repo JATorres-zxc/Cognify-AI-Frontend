@@ -5,6 +5,7 @@ import './Header.css';
 
 import sensaiLogo from '../../../assets/images/sensai logo.png';
 import toolsIcon from '../../../assets/icons/tools.svg';
+//import settingsIcon from '../../../assets/icons/settings.svg'; // Add this icon to your assets
 import myStudyIcon from '../../../assets/icons/mystudy.svg';
 import uploadIcon from '../../../assets/icons/upload.svg';
 import userIcon from '../../../assets/icons/user.svg';
@@ -14,7 +15,11 @@ import SearchBar from '../SearchBar/SearchBar';
 const Header = () => {
     const [isToolsOpen, setIsToolsOpen] = useState(false);
     const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [isNestedToolsOpen, setIsNestedToolsOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const toolsRef = useRef(null);
+    const settingsRef = useRef(null);
     const navigate = useNavigate();
         
     const handleLogoPress = () => { navigate('/'); };
@@ -30,46 +35,65 @@ const Header = () => {
             console.error('Logout failed: ', error.message);
         }
     };
-    
+
+    const handleHamburgerClick = () => {
+        setIsMobileMenuOpen((prev) => !prev);
+    };
+
     // Close dropdown if click outside
     useEffect(() => {
         const handleClickOutside = (event) => {
-        if (toolsRef.current && !toolsRef.current.contains(event.target)) {
-            setIsToolsOpen(false);
-        }
+            if (toolsRef.current && !toolsRef.current.contains(event.target)) {
+                setIsToolsOpen(false);
+                setIsNestedToolsOpen(false);
+            }
+            if (settingsRef.current && !settingsRef.current.contains(event.target)) {
+                setIsSettingsOpen(false);
+            }
         };
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-    
 
     return (
-    <div className='header'>
-        <div className='content'>
-            <img src={sensaiLogo} alt='SensAI Logo' className='logo' onClick={handleLogoPress} />
-
-            <div className='search-container'>
-                <SearchBar />
-            </div>
-
-            <div className='navigation'>
-                <div className='nav-container' onClick={handleUploadPress}>
-                    <div className='nav-icon'>
-                        <img src={uploadIcon} alt='Upload' className='icon' />
+        <div className='header'>
+            <div className='content'>
+                <div className="logo-row">
+                    <div className="hamburger" onClick={handleHamburgerClick}>
+                        <span />
+                        <span />
+                        <span />
                     </div>
-                    <div className='nav-text'>
-                        Upload
-                    </div>
+                    <img
+                        src={sensaiLogo}
+                        alt='SensAI Logo'
+                        className='logo'
+                        onClick= {handleLogoPress}
+                    />
                 </div>
 
-                <div className='nav-container' id='mystudyicon' onClick={handleMyStudyPress}>
-                    <div className='nav-icon'>
-                        <img src={myStudyIcon} alt='MyStudy' className='icon' />
-                    </div>
-                    <div className='nav-text'>
-                        My Study
-                    </div>
+                <div className='search-container'>
+                    <SearchBar />
                 </div>
+
+                <div className='navigation'>
+                    <div className='nav-container' onClick={handleUploadPress}>
+                        <div className='nav-icon'>
+                            <img src={uploadIcon} alt='Upload' className='icon' />
+                        </div>
+                        <div className='nav-text'>
+                            Upload
+                        </div>
+                    </div>
+
+                    <div className='nav-container' onClick={handleMyStudyPress}>
+                        <div className='nav-icon'>
+                            <img src={myStudyIcon} alt='MyStudy' className='icon' />
+                        </div>
+                        <div className='nav-text'>
+                            My Study
+                        </div>
+                    </div>
 
                 <div
                     className='nav-container'
@@ -108,6 +132,6 @@ const Header = () => {
         />
     </div>
     );
-}
+};
 
 export default Header;
